@@ -1,0 +1,439 @@
+JAVA GUI NOTLARI
+public class swing1 {
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("İlk Uygulamamız");
+		
+		JPanel panel = new JPanel();
+		frame.add(panel);
+		
+		JButton buton = new JButton("Butonumuz");
+		panel.add(buton);
+		
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setSize(300,320);
+
+
+1-BUTONA TIKLAMA
+public class swing1 {
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("İlk Uygulamamız");
+		JButton buton = new JButton("Tıklamalı");
+		buton.setBounds(90,90,100,50);
+		buton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) //Butona tıklandığı zaman olucaklar
+			{
+				System.out.println("Butona Tıklandı");
+			}
+		});
+		//KAPANIŞ//
+		frame.add(buton);
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		frame.setSize(300,320);        }         }
+
+2-LABEL ve BUTONA TIKLAYINCA LABELE YAZI YAZMA
+JFrame frame = new JFrame("İlk Uygulamamız");
+		JLabel label = new JLabel();
+		label.setBounds(30, 2, 140, 40);
+		
+		JButton buton = new JButton("Tıklamalı");
+		buton.setBounds(40,40,100,50);
+		buton.addActionListener(new ActionListener() {
+			int a = 1;
+			public void actionPerformed(ActionEvent e) //Butona tıklandığı zaman olucaklar
+			{
+				label.setText("Butona " + a++ + " kez tıklandı!!");
+			}
+		});
+		//KAPANIŞ//
+		frame.add(label);
+		frame.add(buton);
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		frame.setSize(200,160);
+
+
+3-TEXTAREA KULLANIMI VE TEXTAREA YAZILAN HARF VE KELİME SAYISI UYGULAMASI
+public static void main(String[] args) {
+	JFrame frame= new JFrame("İlk uygulama");
+		
+	JTextArea ta = new JTextArea();
+	ta.setBounds(20, 100, 300, 330);
+		
+	JLabel label1 = new JLabel();
+	label1.setBounds(200, 25 , 190, 30);
+		
+	JLabel label2 = new JLabel();
+	label2.setBounds(200, 50, 190, 30);
+		
+	JButton buton = new JButton("Tıkla");
+	buton.setBounds(30, 30, 100, 50);
+	buton.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0) {
+	String text = ta.getText();
+	String []words = text.split("\\s");
+	label1.setText("Kelime Sayısı= " + words.length);
+	label2.setText("Harf Sayısı= " + text.length());}
+		});
+	frame.setVisible(true);
+	frame.add(buton);
+	frame.add(ta);
+	frame.add(label1);
+	frame.add(label2);
+	frame.setSize(400, 550);
+	frame.setLayout(null);
+
+
+4-TEXTFİELD KULLANIMI
+
+	JFrame frame= new JFrame("İlk uygulama");
+		
+	JTextField tf = new JTextField();
+	tf.setBounds(20,20,140,20);
+		
+	JPasswordField pf = new JPasswordField();
+	pf.setBounds(20,60,140,20);
+		
+	JButton b = new JButton("Tıkla");
+	b.setBounds(20, 100, 135, 50);
+	b.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent arg0) {
+	if(tf.getText().equals("sametcavur") && pf.getText().equals("123456")) {
+		System.out.println("Başarılı bir şekilde giriş yapıldı");  	}
+	
+else {		
+System.out.println("Giriş Yapılamadı..!"); 		}}
+		});
+		frame.add(pf);
+		frame.add(b);
+		frame.add(tf);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		frame.setSize(200, 220);
+
+5-CHECKBOX KULLANIMI
+JFrame frame= new JFrame("İlk uygulama");
+		JCheckBox cb = new JCheckBox("Evet");
+		cb.setBounds(20, 20, 100,40);
+		JCheckBox cb1 = new JCheckBox("Hayır");
+		cb1.setBounds(20, 50, 100, 40);
+		JButton b = new JButton("Tıkla");
+		b.setBounds(20, 100, 100, 40);
+		b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(cb.isSelected()) {
+					System.out.println(cb.getText() + " seçildi");
+				}
+				if(cb1.isSelected()) {
+					System.out.println(cb1.getText() + " seçildi");
+				}	}
+		});
+		frame.add(b);
+		frame.add(cb);
+		frame.add(cb1);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		frame.setSize(200, 220);
+
+
+6-CHECKBOX İLE KUTU SEÇİLDİ? SEÇİLMEDİ?
+JFrame frame= new JFrame("İlk uygulama");
+	JLabel l = new JLabel("Kutu?");
+	l.setBounds(20, 80, 100,40);
+		
+	JLabel l1 = new JLabel("Kutu?");
+	l1.setBounds(20, 100, 100,40);
+		
+	JCheckBox cb = new JCheckBox("1.Kutu");
+	cb.setBounds(20, 20, 100,40);
+	cb.addItemListener(new ItemListener() {
+public void itemStateChanged(ItemEvent e) {
+l.setText("1.Kutu " +  (e.getStateChange() == 1 ? "seçildi" : "seçilmedi" ));(1)
+			}            });
+	JCheckBox cb1 = new JCheckBox("2.Kutu");
+	cb1.setBounds(20, 50, 100, 40);
+	cb1.addItemListener(new ItemListener() {
+	public void itemStateChanged(ItemEvent e) {
+l1.setText("2.Kutu " +  (cb1.isSelected() ? "seçildi" : "seçilmedi" ));(2)//Her iki türlüde olur. 		}             });		
+		frame.add(l1);
+		frame.add(l); 
+		frame.add(cb);
+		frame.add(cb1);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		frame.setSize(200, 220); 
+
+
+7-RADİOBUTTON KULLANIMI
+JFrame frame= new JFrame("İlk uygulama");
+	JRadioButton rb = new JRadioButton("Erkek",true);//Burdaki true program açılınca ilk başta erkek seçili olsun demek
+	rb.setBounds(10,10,120,20);
+	JRadioButton rb1 = new JRadioButton();
+	rb1.setText("Kadın");
+	rb1.setBounds(10,30,120,20);
+	JRadioButton rb2 = new JRadioButton("Belirtmek İstemiyorum");
+	rb2.setBounds(10,50,220,20);
+	ButtonGroup bg = new ButtonGroup();
+	bg.add(rb);
+	bg.add(rb1);
+	bg.add(rb2); // Bu yalnızca birini seçebilme hakkı veriyor,eğer yazmasaydık kullanıcı hem erkek,hem kadın,hem de belirtmek istemiyorum seçebilirdi ama artık sadece birini seçebilir.
+		
+	frame.add(rb);
+	frame.add(rb1);
+	frame.add(rb2);
+	frame.setLayout(null);
+	frame.setVisible(true);
+	frame.setSize(300, 160);
+
+
+8-COMBOBOX KULLANIMI
+JFrame frame= new JFrame("İlk uygulama");
+
+String []sehirler = {"Antalya","İstanbul","İzmir","Urfa"};
+
+JComboBox cb = new JComboBox(sehirler);
+cb.setBounds(20, 20, 200, 20);
+				
+JLabel l = new JLabel();
+l.setBounds(20, 80, 100, 20);
+
+JButton b = new JButton("Tıkla");
+b.setBounds(20, 50, 100, 20);
+b.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent arg0) {
+	l.setText(String.valueOf(cb.getSelectedItem()));	}	});
+		
+frame.add(l);
+frame.add(b);
+frame.add(cb);
+frame.setLayout(null);
+frame.setVisible(true);
+frame.setSize(300, 260);
+
+
+9-JTABLE KULLANIMI
+JFrame frame= new JFrame("İlk uygulama");
+String [][] veriler = {{"Samet","Fizik","90"},{"Ahmet","Matematik","96"},{"Mehmet","Türkçe","100"}};
+	String [] basliklar = {"İsim","Ders","Not"};
+		
+	JTable t = new JTable(veriler,basliklar);
+	t.setBounds(0, 0, 250, 250);
+	JScrollPane cp = new JScrollPane(t); //sağdaki aşşağı yukarı kaydırma işlemi bu,kesinlikle olmalıdır.Ve bunu ekleyince aşağıda frame ye table ı değil scrollpaneyi ekliyoruz..
+		
+	frame.add(cp);
+	frame.setVisible(true);
+	frame.setSize(300, 260);
+
+
+
+10-JOPTİONPANE KULLANIMI
+(FRAME AÇILMADAN ÖNCE MESAJ VEREN PANEL)
+JFrame frame= new JFrame("İlk uygulama");
+	JOptionPane.showMessageDialog(frame,"Merhaba Samet");
+	JOptionPane.showMessageDialog(frame,"Dikkat!","FormunÜstündekiYazı", JOptionPane.WARNING_MESSAGE);
+		
+	String isim = JOptionPane.showInputDialog("Adınız");
+	JLabel label = new JLabel("Hoşgeldiniz "+isim +" Bey");
+	label.setBounds(10, 10, 400, 10);
+		frame.setLayout(null);
+		frame.add(label);
+		frame.setVisible(true);
+		frame.setSize(300, 260);
+
+
+11-JSCROLLBAR KULLANIMI
+JFrame frame= new JFrame("İlk uygulama");
+		JLabel label= new JLabel("herhangi bişey");
+		label.setBounds(30, 20, 100, 20);
+		JScrollBar sb = new JScrollBar(JScrollBar.VERTICAL);//BURAYA HORİZONTAL YAZARSAK SCROLL BAR YUKARI AŞAĞI DEĞİL SAĞA SOLA OYNAR
+		sb.setBounds(30, 60, 15, 120);
+		sb.addAdjustmentListener(new AdjustmentListener() {
+			public void adjustmentValueChanged(AdjustmentEvent a) {
+			label.setText(" " +sb.getValue());
+			}
+		});
+		frame.setLayout(null);
+		frame.add(sb);
+		frame.add(label);
+		frame.setVisible(true);
+		frame.setSize(300, 260);
+		
+		
+12-JMENU VE JMENUITEM KULLANIMI
+JFrame frame= new JFrame("İlk Uygulama");
+		
+	JMenuBar menubar = new JMenuBar();
+		
+	JMenu menu = new JMenu("Ana Menü");
+	JMenu bebemenu = new JMenu("Bebe Menü");
+	JMenu babamenu = new JMenu("Baba Menü");
+	JMenu submenu = new JMenu("Dosya"); //submenü alt menü demek
+		
+	JMenuItem m1 = new JMenuItem("Yeni");
+	JMenuItem m2 = new JMenuItem("Aç");
+		
+	JMenuItem s1 = new JMenuItem("Kaydet");
+	JMenuItem s2 = new JMenuItem("Sil");
+	s2.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent arg0) {
+		JOptionPane.showMessageDialog(frame,"Silindi");	}
+		});
+	s1.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent arg0) {
+		JOptionPane.showMessageDialog(frame,"Kaydedildi");		}
+		});
+		submenu.add(s1);
+		submenu.add(s2);
+		
+		menu.add(m1);
+		menu.add(m2);
+		menu.add(submenu);
+		
+		menubar.add(menu);
+		menubar.add(bebemenu);
+		menubar.add(babamenu);
+
+		frame.setJMenuBar(menubar);
+		frame.setVisible(true);
+		frame.setSize(300, 260);
+
+
+13-JPOPUPMENU KULLANIMI(Sağ tıklayınca açılan menü)
+
+public static void main(String[] args) {
+		JFrame frame= new JFrame("İlk Uygulama");
+		
+		JPopupMenu pm = new JPopupMenu();
+		
+		JMenuItem m1 = new JMenuItem("Kes");
+		JMenuItem m2 = new JMenuItem("Kopyala");
+		JMenuItem m3 = new JMenuItem("Yapıştır");
+		
+		pm.add(m1);
+		pm.add(m2);
+		pm.add(m3);
+	
+		frame.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				pm.show(frame,e.getX(),e.getY());	}
+		});
+		
+		m2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(frame, "Kopyalandı");
+			}
+		});
+		frame.setVisible(true);
+		frame.setSize(300, 260);
+
+14-JPROGRESSBAR KULLANIMI
+JFrame frame= new JFrame("İlk Uygulama");
+		JProgressBar pb = new JProgressBar(0,1000);
+		pb.setBounds(30, 30, 250, 20);
+		pb.setValue(0);
+		pb.setStringPainted(true);
+		
+		
+		frame.setLayout(null);
+		frame.add(pb);
+		frame.setVisible(true);
+		frame.setSize(330, 120);
+		
+		int i = 0;
+		while (i<1000) {
+			pb.setValue(i);
+			i=i+1;
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+
+15-JTABBEDPANE (TAB MENU) KULLANIMI
+JFrame frame= new JFrame("İlk Uygulama");
+		
+	JLabel l1 = new JLabel("İlk Alan");
+	JPanel panel1 = new JPanel();
+	panel1.add(l1);
+		
+	JLabel l2 = new JLabel("İkinci Alan");
+	JPanel panel2 = new JPanel();
+	panel2.add(l2);
+		
+	JLabel l3 = new JLabel("Üçüncü Alan");
+	JPanel panel3 = new JPanel();
+	panel3.add(l3);
+		
+	JTabbedPane tp = new JTabbedPane();
+	tp.setBounds(20, 20, 250, 150);
+	tp.add("İLK" , panel1);
+	tp.add("İKİNCİ" , panel2); 
+	tp.add("ÜÇÜNCÜ" , panel3);
+		
+	frame.add(tp);
+	frame.setLayout(null);
+	frame.setVisible(true);
+	frame.setSize(330, 320);
+		
+
+16-LAYOUT
+•	FLOW LAYOUT
+JFrame frame= new JFrame("İlk Uygulama");
+	JButton b1 = new JButton("buton1");
+	JButton b2 = new JButton("buton2");
+	JButton b3 = new JButton("buton3");
+	JButton b4 = new JButton("buton4");
+	JButton b5 = new JButton("buton5");
+		
+	JPanel panel = new JPanel();
+	panel.setLayout(new FlowLayout());
+	panel.add(b1);
+	panel.add(b2);
+	panel.add(b3);
+	panel.add(b4);
+	panel.add(b5);
+		
+	frame.add(panel);
+	frame.setSize(500,150);
+	frame.setVisible(true);	
+•	BORDER LAYOUT
+JFrame frame= new JFrame("İlk Uygulama");
+	JButton b1 = new JButton("buton1");
+	JButton b2 = new JButton("buton2");
+	JButton b3 = new JButton("buton3");
+	JButton b4 = new JButton("buton4");
+	JButton b5 = new JButton("buton5");
+		
+	JPanel panel = new JPanel();
+	panel.setLayout(new BorderLayout());
+	panel.add(b1,BorderLayout.NORTH);
+	panel.add(b2,BorderLayout.SOUTH);
+	panel.add(b3,BorderLayout.EAST);
+	panel.add(b4,BorderLayout.WEST);
+	panel.add(b5,BorderLayout.CENTER);
+		
+	frame.add(panel);
+	frame.setSize(400,400);
+	frame.setVisible(true);	
+•	GRİD LAYOUT
+JFrame frame= new JFrame("İlk Uygulama");
+	JButton b1 = new JButton("buton1");
+	JButton b2 = new JButton("buton2");
+	JButton b3 = new JButton("buton3");
+	JButton b4 = new JButton("buton4");
+		
+	JPanel panel = new JPanel();
+	panel.setLayout(new GridLayout(3,2));
+	panel.add(b1);
+	panel.add(b2);
+	panel.add(b3);
+	panel.add(b4);
+		
+	frame.add(panel);
+	frame.setSize(400,400);
+	frame.setVisible(true);	

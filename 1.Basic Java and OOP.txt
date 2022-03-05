@@ -1,44 +1,52 @@
-Java Ders Notlarım
+	//JVM-JRE-JDK//
 JVM(Java Virtual Machine)=Java kodlarını bütün işletim sistemlerinde kullanabilmemiz için kodları Java Byte Code’e çevirir, .java uzantılı dosyaları değilde .class uzantılı okuyabilir.Bunun sayesinde “Kodu bir kere yaz,bütün işletim sistemlerinde çalıştır” sözünün mantığını anlıyoruz.
 JRE(Java Runtime Environment)=JVM sayesinde java kodlarından dönüştürülmüş byte code’leri diğer makinalarda kullanmamızı sağlar.Bunun yanısıra bazı temel kütüphaneleride barındır.
 JDK(Java Development Kit)=Java dili ile geliştirme yapamız içi gereken araçları içeren pakettir.
-KISACA:	JRE=JVM + Java Kütüphaneleri	      JDK=JRE + Compiler + debugger
+KISACA:	JRE=JVM + Java Kütüphaneleri	      
+		JDK=JRE + Compiler + debugger
 
-///Klavyeden Veri Alma///
+		//INPUT DATA-Klavyeden Veri Alma//
 Scanner scan = new Scanner(System.in);
 System.out.println("Klavyeden Veri Alma");
 int a=scan.nextInt();
 System.out.println(a);
 System.err.println (“ “)-- (Kırmızı yazdırma)
 ***/// System.err.println("Klavyeden Veri Alma");***
---- Klavyeden Veri Alma---
-///MATH METODLARI///
-///Math.sqrt ve Kök Alma///
+
+
+
+		///MATH METHODS//
+1-Math.sqrt ve Kök Alma
 double x = 9;
 Math.sqrt(x);
 System.out.println(Math.sqrt(x));
           yada
 double x=Math.sqrt(9);
-System.out.println(x);		Çıktı: --3--
-///Math.ceil ve bir double sayıyı üst sayıya yuvarlama///
+System.out.println(x);		
+Çıktı: --3--
+
+2-Math.ceil ve bir double sayıyı üst sayıya yuvarlama
 double sayi= Math.ceil(5.2);
 System.out.println(sayi); 	  yada
 double sayi=5.2;
 Math.ceil(sayi);
 System.out.println(Math.ceil(sayi));
 --6—
-///Math.pow ve ikinci parametreyi üs alan sınıf///
+
+3-Math.pow ve ikinci parametreyi üs alan sınıf
 double sayi=Math.pow(5,3);
 System.out.println(sayi);
 5.5.5= ---125---
-///Math.Max/Math.Min ve İki sayıdan büyüğünü yada küçüğünü alan sınıf///
+
+4-Math.Max/Math.Min ve İki sayıdan büyüğünü yada küçüğünü alma
 double sayi=Math.max(76,66);
 System.out.println(sayi);
 ---76---
 double sayi=Math.min(76,66);
 System.out.println(sayi);
 ---66---
-///Math.Random ve rastgele sayı döndüren sınıf///
+
+5-Math.Random ve rastgele sayı döndüren sınıf
 double sayi=Math.random();
 System.out.println(sayi);
 ---rastgele bir sayı---
@@ -48,7 +56,10 @@ System.out.println(sayi);
 double sayi=100 + Math.random() * 1000;
 System.out.println(sayi);
 ---100 ile 1000 arasında rastgele bir sayı---
-///Parametresiz Değer Döndürmeyen Metodlar///
+
+		//METHODS//
+1-Parametresiz değer döndürmeyen metodlar
+
 *Void=Değer Döndürmeyen,bir sonuç üretmeyen
 *Public=Herkese açık metod
 *Private=Coddera özel metod
@@ -71,7 +82,9 @@ Akdeniz Üniversitesi
 Yönetim ve Bilişim Sistemleri
 20184753075
 ---
-///Parametreli Değer Döndürmeyen Metodlar///
+
+
+2-Parametreli Değer Döndürmeyen Metodlar
 public static void main(String[] args)
 	{
 		Scanner scan=new Scanner(System.in);	
@@ -94,7 +107,9 @@ public static void main(String[] args)
 Toplamı=88
 ---  
 *public static void topla(int a,int b)>>buraya int c,int d ekleyerek parametreyi arttırabiliriz.
-///Parametresiz Değer Döndüren Metodlar///
+
+
+3-Parametresiz Değer Döndüren Metodlar
 *Void yerine metodun döndüreceği sonuç değişkeninin türünü yazacağız.void>int,double,str.
 *Değer döndüren metodlarda sona her zaman return yazarız.
 public static void main(String[] args)
@@ -120,7 +135,8 @@ public static void main(String[] args)
 526.2914999999999
 ---
 
-///Parametreli Değer Döndüren Metodlar///
+
+4-Parametreli Değer Döndüren Metodlar
 public static void main(String[] args)
 	{
 	System.out.println(topla(50, 60));
@@ -130,7 +146,9 @@ public static void main(String[] args)
 	{
 		return a+b;
 	}
-ÖRNEK
+	
+	
+**Example Application -Check Pass And User-**
 Kullanıcı adı ve Parola doğru ise true yanlış ise false döndüren metod
 public static void main(String[] args)
 	{
@@ -152,7 +170,8 @@ public static void main(String[] args)
 		}
 	}
 
-ÖRNEK 
+
+**Example Application -Calculator-**
 Metodlarla yapılmış bir hesap makinesi
 public static void main(String[] args)
 	{
@@ -197,7 +216,10 @@ public static void main(String[] args)
 	public static int carp(double a,double b) {
 		int c = (int) (a * b);
 		return c;	}
-///DİZİLER///
+		
+		
+		
+		//ARRAYS-DİZİLER//
 
 int [] dizi = new int[3];
 		dizi [0]=15;
@@ -206,7 +228,7 @@ int [] dizi = new int[3];
 *3 elemanlı bir dizi
 
 
-///Hazır Elemanlı Diziler///
+//Hazır Elemanlı Diziler//
 
 String [] gunler = {"Pazartesi","Salı","Çarşamba"};
 		System.out.print(gunler[2]);	
@@ -243,12 +265,10 @@ public static void main(String[] args)
 		System.out.println(gunler[6]); }
 
 
-ÖRNEK
+**Example Application**
 Kullanıcının sayısını belirlediğini diziye sayılar atayıp sayıların toplamını ve ortalamasını aldıran ve sayıları metodla sıralayan program
-***lenght=dizideki eleman adedini verir.
-***size=dizinin boyutunu verir.(bunu adedi belli olmayan dizilerde(Array List)kullanacağız.
-
-
+lenght=dizideki eleman adedini verir.
+size=dizinin boyutunu verir.(bunu adedi belli olmayan dizilerde(Array List)kullanacağız.
 
 
 public static Scanner scan = new Scanner(System.in);
@@ -275,7 +295,7 @@ public static Scanner scan = new Scanner(System.in);
 	}}
 
 
-///ÇOK BOYUTLU DİZİLER///
+		//MULTI ARRAYS-ÇOK BOYUTLU DİZİLER//
 
 System.out.println("Satır Sayısını Gir");
 	int x = scan.nextInt();
@@ -283,8 +303,8 @@ System.out.println("Satır Sayısını Gir");
 	int y = scan.nextInt();
 	int cokBoyutluDizi[][] = new int [x][y];
 
-///For Döngüsü ile Çok boyutlu bir diziye sayı atayıp yazdırma///
 
+**Example Application**
 public static Scanner scan = new Scanner(System.in);
 	public static void main(String[] args) 
 	{
@@ -304,11 +324,7 @@ public static Scanner scan = new Scanner(System.in);
 
 
 
-
-
-
-
-/// DİZİ KOPYALAMA ///
+		// COPY ARRAY-DİZİ KOPYALAMA //
 ***System.arraycopy(dizi1, 4, dizi2, 3, 2)>>>dizi1’in 4. İndeksinden 2 veri kopyala ve dizi2 in 3.indeksinden sonra yapıştır.
 ÖRNEK
 {
@@ -322,7 +338,7 @@ public static Scanner scan = new Scanner(System.in);
 
 --- 0 0 0 3 4 0 0 0 0 0 ---
 
-/// DİZİ SIRALAMA ///
+		//ARRAY SORTİNG-DİZİ SIRALAMA //
 Arrays.sort(dizi); >> Diziyi küçükten büyüğe doğru sıralayan metod.
 
 int dizi[]= {9,12,2,74,3,4,63,5,32,0};
@@ -331,7 +347,7 @@ int dizi[]= {9,12,2,74,3,4,63,5,32,0};
 		System.out.println(dizi[i]);
 
 
-/// ARRAY LİST (GELİŞMİŞ-DİNAMİK DİZİLER///
+		// ARRAY LIST-Advanced,Dinamic Arrays (GELİŞMİŞ-DİNAMİK DİZİLER)//
 İçerisindeki veri sayısı bilinmeyen dizileri,sonradan içindeki verileri çıkarmak eklemek yada değiştirmek istediğimiz dizileri array list ile yapıyoruz.
 Add ile diziye veri ekleme
 Remove ile diziden veri silme
@@ -351,7 +367,8 @@ ArrayList<String> Derslistesi = new ArrayList<>();
 Matematik     Beden Eğitimi
 Fizik         Müzik     ---
 
-///ÖRNEK UYGULAMA///
+
+**Example Application**
 İçindeki veri sayısı belli olmayan bir diziye 3 farklı eleman atayacağız,sonrasında bu verilerin kökü alınmış haliyle değiştirip yazdıracağız.
 
 ArrayList<Integer> sayiDizisi = new ArrayList<>();
@@ -386,7 +403,8 @@ ArrayList<Integer> sayiDizisi = new ArrayList<>();
 5
 ---
 
-///String Sınıfı Metodları///
+
+		//STRING CLASS//
 
 String isimSoyisim = "Samet Çavur";
 String okulAdi = "Akdeniz Üniversitesi";
@@ -415,8 +433,6 @@ Kelimeyi büyük harflerle yazdırma= SAMET ÇAVUR
 String f = isimSoyisim.substring(3 ,9);
 System.out.println("İndeks numaralarını verdiğimiz aralıktaki harfleri çıkarır=" + f);
 İndeks numaralarını verdiğimiz aralıktaki harfleri çıkarır=et Çav
-	
-
 
 Boolean g = isimSoyisim.contains("Samet");
 System.out.println("Samet kelimesi cümlede var mı kontrol ediyoruz=" + g);
@@ -454,8 +470,11 @@ t	r	---
 
 CharArray ile yeni bir char dizisi üretip kelimeyi yukardan aşağıya yazdırdık.
 
-///İnteger değerleri Stringe Çevirme(Integer.toString) ve 
-String değerleri İntegera Çevirme(Integer.parseInt-Double.parseDouble)///
+
+
+//Integer convert to string and String convert to Integer//
+//İnteger değerleri Stringe Çevirme(Integer.toString) ve 
+String değerleri İntegera Çevirme(Integer.parseInt-Double.parseDouble)//
 
 int a = 5;
 	int b = 10;
@@ -477,95 +496,20 @@ int a = 5;
 
 
 
+		//CONSTUCTOR(YAPILANDIRICI METOTLAR)//
 
-///CONSTUCTOR(YAPILANDIRICI METOTLAR)///
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///Erişim Belirteçleri ///
+//Access Modifiers-Erişim Belirteçleri //
 Public=Herkese açık classlar
 Private=Gizli class,herhangi bir paketten yada classtan ulaşamayız.
 Friendly=Hiçbir şey tanımlamadığımız classlardır.Aynı paket içindeki classlardan ulaşılabilir.
 Protected=Korumalı.Başka paketten ulaşılamaz.
 
-///Kapsülleme (Encapsulation)///
+
+		//ENCAPSULATION (KAPSÜLLEME)//
 Kapsülleme kullanıcıdan bazı şartlar altında bir şey istediğinde kullanılır.Örneğin bir isim text boxuna sayı girilmesini engeller.Paketin içindeki kapsüllemek istediğimiz değişkenin başına private yazıyoruz.Bu şekilde dışardan erişime engelliyoruz.Dışarıdan bazı kısıtlamalar ile almak içinse set/get metodları ile kısıtlayarak public classların içine koyuyoruz.
 
-private String isim;
-public String getIsim() {
-		return this.isim;
-	}
-	public void setIsim(String isim) {
-		if(isim.length()<3) {
-			System.out.println("Geçersiz bir isim kullandın.İsmin Kullanıcı olarak değiştirildi");
-			this.isim="Kullanıcı";
-		}
-		else {
-			this.isim=isim;
-		}
-	}
 
-               MAİN CLASS
-	ogrenci ogr1 = new ogrenci();
-		ogr1.setIsim("Metin");
-		System.out.println(ogr1.getIsim());
-
-///Set,Get,This///
+		// What is Set,Get,This?//
 Üst Örnekte var.
 Set aslında metodun ismidir ve kapsüllenmiş classa veri yollamak için kullanılıyor
 Get ise kapsüllenmiş classtan veriyi almak için kullanıyoruz.
@@ -584,7 +528,7 @@ private static String okul;
 		System.out.println(ogr2.getOkul());
 
 
-///To.String Metodu///
+		//To.String Methods//
 İskeleti oluştuğumuz classın içine toStr+ctrl+space basınca otomatik oluşturuyor.Return’un içine de çağırmamızı istediğimiz değişkenleri yazıyoruz.Ve main classta sadece nesnemizi syso içinde çağırınca returnda istediğimiz tüm veriler geliyor.
 
 public String toString() {	
@@ -597,225 +541,20 @@ ogrenci ogr1 = new ogrenci("Samet","Çavur","1234",25);
 
 --- İsminiz=Samet,Soyisminiz=Çavur,Okulunuz=Akdeniz Üniversitesi,OkulNo=1234,Yaşınız=25
 ---
-///Final Metodu///
+
+		//Final Methods//
 Değişkenin türüne bir kere final yazılınca değiştirilemez anlamına gelir.Binevi son noktayı koyduk artık budur demek gibi bir şey.
 private static final String okul = "Akdeniz Üniversitesi";
 
-///ÖRNEK UYGULAMA///
-public class ogrenci {
-	private static String okul="Akdeniz Üniversitesi";
-	private String isim;
-	private String soyisim;
-	private String okulno;
-	private ArrayList<String> dersler;
 
-	
-	public String toString() {
-		return "ogrenci [isim=" + isim + ", soyisim=" + soyisim + ", okulno=" + okulno + ", dersler=" + dersler + "]";
-	}
-	public ogrenci() {	
-	}
-	public ogrenci(String isim,String soyisim,String okulno,ArrayList<String>dersler) {
-		this.isim=isim;
-		this.soyisim=soyisim;
-		this.okulno=okulno;
-		this.dersler=dersler;
-	}
-
-	public void setIsim(String isim) {
-		this.isim=isim;
-	}
-	public String getIsim() {
-		return isim;
-	}
-	
-	public void setSoyisim(String soyisim) {
-		this.soyisim=soyisim;
-	}
-	public String getSoyisim() {
-		return soyisim;
-	}
-	
-	public void setOkulno(String okulno) {
-		this.okulno=okulno;
-	}
-	public String getOkulno() {
-		return okulno;
-	}
-	
-	public void setDersler(ArrayList<String> dersler) {
-		this.dersler=dersler;
-	}
-	public ArrayList<String> getDersler(){
-
-MAİN CLASS
-public class ogrenciTest {
-	public static void main(String[] args) {
-		ogrenci ogr1 = new ogrenci();
-		ogr1.setIsim("Samet");
-		ogr1.setSoyisim("Çavur");
-		ogr1.setOkulno("1234");
-		ArrayList<String> ogr1ders = new ArrayList<>();
-		ogr1ders.add("Matematik");
-		ogr1ders.add("Fizik");
-		ogr1ders.add("Kimya");
-		ogr1.setDersler(ogr1ders);
-		
-		ogrenci ogr2 = new ogrenci("Metin","Taşmaz","4321",null);
-		ArrayList<String> ogr2ders = new ArrayList<String>();
-		ogr2ders.add("İngilizce");
-		ogr2ders.add("Fransızca");
-		ogr2ders.add("İspanyolca");
-		ogr2.setDersler(ogr2ders);
-		
-		System.out.println(ogr1);
-		System.out.println(ogr2);
-		
-		dersAra(ogr1,"Matematik");
-		
-	}
-	public static void dersAra(ogrenci o,String d) {
-	ArrayList<String> dersler = o.getDersler();
-	int x=1;
-	for( String ders : dersler) {
-		if(d.equals(ders)) {
-			System.out.println("Öğrenci bu dersi alıyor.");
-			x=0;
-		}
-		}
-	if(x==1) {
-		System.out.println("Öğrenci bu dersi almıyor.");
-	}
-	}
-	
----
-ogrenci [isim=Samet, soyisim=Çavur, okulno=1234, dersler=[Matematik, Fizik, Kimya]]
-ogrenci [isim=Metin, soyisim=Taşmaz, okulno=4321, dersler=[İngilizce, Fransızca, İspanyolca]]
-Öğrenci bu dersi alıyor.		---
-///NESNELER ARASI İLİŞKİ (ASSOCATİON)///
+		//RELATION of OBJECTS-NESNELER ARASI İLİŞKİ (ASSOCATİON)//
 
 Assocation mantığı iki classı birleştirip main classta
 Kullanmaktır.Bunu yapma sebebimiz yandaki resimden anlaşılır.İlk önce isim soyisim okulno dersler gibi verileri aldığımız class oluşturuyoruz.Sonrasında adresi alacağımız classı oluşturuyoruz.Sonra ikisini main classta kullanıyoruz.
 
 
 
-public class ogrenci {
-	private String isim;
-	private String soyisim;
-	private String okulno;
-	private ArrayList<String> dersler;
-	private adress adres;
-
-
-Öğrenciyi yarattığımız class
-	public ogrenci() {
-		
-	}
-	public ogrenci(String isim, String soyisim, String okulno, ArrayList<String> dersler, adress adres) {
-		this.isim = isim;
-		this.soyisim = soyisim;
-		this.okulno = okulno;
-		this.dersler = dersler;
-		this.adres = adres;
-	}
-	public String getIsim() {
-		return isim;
-	}
-	public void setIsim(String isim) {
-		this.isim = isim;
-	}
-	public String getSoyisim() {
-		return soyisim;
-	}
-	public void setSoyisim(String soyisim) {
-		this.soyisim = soyisim;
-	}
-	public String getOkulno() {
-		return okulno;
-	}
-	public void setOkulno(String okulno) {
-		this.okulno = okulno;
-	}
-	public ArrayList<String> getDersler() {
-		return dersler;
-	}
-	public void setDersler(ArrayList<String> dersler) {
-		this.dersler = dersler;
-	}
-	public adress getAdres() {
-		return adres;
-	}
-	public void setAdres(adress adres) {
-		this.adres = adres;
-	}
-	@Override
-	public String toString() {
-
-
-ADRESS CLASS
-public class adress {
-	private String sokak;
-	private String cadde;
-	private String il;
-	private String ilce;
-	public adress() {	
-	}	
-	public adress(String sokak, String cadde, String il, String ilce) {
-		this.sokak = sokak;
-		this.cadde = cadde;
-		this.il = il;
-		this.ilce = ilce;
-	}
-
-	public String getSokak() {
-		return sokak;
-	}
-	public void setSokak(String sokak) {
-		this.sokak = sokak;
-	}
-	public String getCadde() {
-		return cadde;
-	}
-	public void setCadde(String cadde) {
-		this.cadde = cadde;
-	}
-	public String getIl() {
-		return il;
-	}
-	public void setIl(String il) {
-		this.il = il;
-	}
-	public String getIlce() {
-		return ilce;
-	}
-	public void setIlce(String ilce) {
-		this.ilce = ilce;
-	}
-	@Override
-	public String toString() {
-		return "adress [sokak=" + sokak + ", cadde=" + cadde + ", il=" + il + ", ilce=" + ilce + "]";
-	}
-	
-MAİN CLASS
-public class ogrenciTest {
-	public static void main(String[] args) {
-		ogrenci ogr1 = new ogrenci();
-		adress adres = new adress("113/1 sk","Rauf Denk Cd","İst","Zb");
-		ogr1.setAdres(adres);
-		ogr1.setIsim("Samet");
-		ogr1.setSoyisim("Çavur");
-		ogr1.setOkulno("123");
-		ArrayList<String> dersler= new ArrayList<>();
-		dersler.add("Mate");
-		dersler.add("fizik");
-		ogr1.setDersler(dersler);
-		
-		System.out.println(ogr1);
-
-
-ÇIKTI
---- ogrenci [isim=Samet, soyisim=Çavur, okulno=123, dersler=[Mate, fizik], adres=adress [sokak=113/1 sk, cadde=Rauf Denk Cd, il=İst, ilce=Zb]]---
-
+**Example Application (Constructor,Encasulation and Assocation)**
 ///CONSTRUCTOR,ENCAPSULATİON ve ASSOCATİON İÇEREN UYGULAMA///
 Bu örnekte öğrenci tanımladık ve adres ile aldığı kursları farklı bi classtan alarak assocation ile yaptık,İsim ve Soyisim 3 harften küçük olmaması için kapsülledik.
 
@@ -1030,11 +769,8 @@ Adres=[sokak=113/1, mahalle=Beştelsiz, ilce=Zeytinburnu, il=İst]
 
 
 
-
-
-///KALITIM (İNHERİTANCE)///
+		//INHERITANCE (KALITIM)//
  
-
 Yukarıdaki resim mantığı ile çalışır.Kişi adında bir class oluştururuz.İsim,Soyisim gibi değişkenler alırız.Sonrasında Öğretmen ve öğrenci içinde aynı değişkenler almamız gerektiği için bir daha yazıp set,get kullanmamıza gerek kalmaz.Sadece Constructor kullanırız.Bunun için ilk önce normal bir kişi classı oluştururuz.Ardından öğretmen ve öğrenci classını oluşturdumuz zaman yanına extends kisi yazarız.Böylelikle kişi classının içindeki veriler öğretmen ve öğrenci classınada dahil olur.
 KİSİ CLASSI
 private String isim;
@@ -1124,14 +860,7 @@ YBS
 ---
 
 
-
-
-
-
-
-
-
-///KALITIMDA SUPER KULLANIMI///
+		//Super in Interitance -KALITIMDA SUPER KULLANIMI//
 Parametresiz constructor oluştururken super() kullanmamıza gerek yok,fakat çoğunlukla parametreli constructorda kullandığımız için superi çokça kullanmammız gerekli,superin amacı extend ettiğimiz classtaki değişkenleri extend edilen classtada kullanmak için parametreli constructor içine super(isim,soyisim); açıyoruz ve parantezin için extend ettiğimiz classtaki değişkenleri ve verileri yazıyoruz.Aynı zamanda constructorun içinede değişken türüyle adını belirliyoruz.
 
 Diyelim ki extend ettiğimiz classımızda şu değişkenler var:
@@ -1149,14 +878,17 @@ public ogretmen(String brans,String statu,String isim,String soyisim,String tele
 		super(isim, soyisim, telefonNo);  (Şuraya şöyle bir super belirledik)
 		this.brans = brans;
 		this.statu = statu;
-///KALITIMDA ToString KULLANIMI///
+		
+		
+		//ToString in Interitance -KALITIMDA ToString KULLANIMI//
 Kalıtım konusunda toString normal toStringe göre biraz farklı oluyor.Extend ettiğimiz classtaki değişkenler extend edilen classtaki toString in içine yazılıyor fakat get ile beraber.
 Üstteki Örneğin toStringi şu şekilde olucak:
 
 public String toString() {
 	return "ogretmen [brans=" + brans + "statu = " + statu + "İsim" + getIsim() + ", Soyisim=" + getSoyisim()+ ", TelefonNo=" + getTelefonNo();
 
-///POLYMORPHİZM(ÇOK BİÇİMLİLİK)///
+
+		//POLYMORPHİZM(ÇOK BİÇİMLİLİK)//
 Polymorfizimin mantığı şudur diyelim bir insan tanımladık,bu insanın ismi,soyismi,yaşı,memleketi onun kişisel özellikleridir,bir de doktor öğrenci öğretmen tanımladık bu meslekler onların vasıflarıdır.Bizim İnsan yada kişi diye bir classımız var,ve öğretmen,öğrenci,doktor diye classlarımız var,öğretmen classımızın içinde branşı,öğrenci classımızın içinde okul no,doktor classımızın içinde de alanı var,main classta öğretmen öğrenci yada doktoru çağırırsak bütün özellikleri gelir,fakat insan classından çağırırsak bir tek ismi soyismi yaşı memleketi gelir.Mantık budur.Bir nevi ana classta ki metodları diğer classlarda override etme işlemidir.Öğrenci doktor yada öğretmenin nesnesini oluştururken Ogrenci ogr1 = new Ogrenci(); değilde Insan ogr1 = new Ogrenci(); olarak oluştururuz.Böylece insanın(öğrenci öğretmen doktor) herhangi bi özelliğini almak istediğimizde insan classından çağırırız.
 ÖRNEK
 İNSAN CLASSI
@@ -1285,15 +1017,14 @@ Yaş=23
 ogrenci [okulNo=1234, Isim=Samet, Soyisim=Çavur, Yas=23]
 
 ogretmen [brans=YBS, İsim=Resul, Soyisim=Kara, Yas=35]	---
-///OVERRİDE VE OVERLOAD///
 
-Overload
 
-Overload bir metodun aşırı yüklenmesi anlamına gelir. Java'da overload ile aynı isimde birden fazla metot yazabiliriz. Bu metotları birbirinden ayıran fark aldıkları parametreler olur. Örneğin programımızda selamVer adında bir metot olsun. Bu metodu selamVer() şeklinde yazarak ekrana sadece selam yazdırabiliriz. Aynı şekilde başka bir metot olarak selamVer(String isim) şeklinde tanımlayabiliriz. Programımızda selamVer metodunu bir string değer ile çağırırsak ikinci metot çağırılır eğer parametresiz çağırırsak birinci metot çağırılır. Java burada metodun aldığı parametrelere bakarak hangi metodun çağırılacağına karar verir. Bu işleme overload denir. Burada dikkat edilmesi gereken konular ise parametrelerin sayısı, tipi ve sırası farklı ise kodumuz sorunsuz çalışacaktır. Ancak aynı parametreler ile aynı isimde iki metot yazarsa burada hata alırız. Bir diğer konu ise Java dönüş değerine göre metotları ayırt edemez. Yani void selamVer() metodu ve String selamVer() metodunu programımıza yazarsa Java bu ikisi arasındaki farkı anlayamaz ve hata verir. Çünkü selamVer() metodunu çağırdığımız yerde hangi dönüş değerini beklediğimizi belirtmek zorunda değilizdir.
 
-Override
+		//OVERRIDDING VE OVERLOADING//
 
-Override bir metodun tekrardan yazılması anlamına gelir. Bildiğiniz gibi Java'da kalıtım vardır. Aynı şekilde interface yapısıda Java dilinde kullanılır. Yazdığımız bir sınıfa kalıtım yolu ile veya interface yolu ile birden çok metot dahil edebiliriz ve bu metotları kullanabiliriz. Ancak kalıtım ile aldığımız bir metodu değiştirmek istersek o zaman override etmemiz yani yeniden yazmamız gerekir. Interface yapısı ile aldığımız metotları da zorunlu olarak tekrardan yazmamız zaten gereklidir. İşte bu işleme override denir.
+Overload : Overload bir metodun aşırı yüklenmesi anlamına gelir. Java'da overload ile aynı isimde birden fazla metot yazabiliriz. Bu metotları birbirinden ayıran fark aldıkları parametreler olur. Örneğin programımızda selamVer adında bir metot olsun. Bu metodu selamVer() şeklinde yazarak ekrana sadece selam yazdırabiliriz. Aynı şekilde başka bir metot olarak selamVer(String isim) şeklinde tanımlayabiliriz. Programımızda selamVer metodunu bir string değer ile çağırırsak ikinci metot çağırılır eğer parametresiz çağırırsak birinci metot çağırılır. Java burada metodun aldığı parametrelere bakarak hangi metodun çağırılacağına karar verir. Bu işleme overload denir. Burada dikkat edilmesi gereken konular ise parametrelerin sayısı, tipi ve sırası farklı ise kodumuz sorunsuz çalışacaktır. Ancak aynı parametreler ile aynı isimde iki metot yazarsa burada hata alırız. Bir diğer konu ise Java dönüş değerine göre metotları ayırt edemez. Yani void selamVer() metodu ve String selamVer() metodunu programımıza yazarsa Java bu ikisi arasındaki farkı anlayamaz ve hata verir. Çünkü selamVer() metodunu çağırdığımız yerde hangi dönüş değerini beklediğimizi belirtmek zorunda değilizdir.
+
+Override : Override bir metodun tekrardan yazılması anlamına gelir. Bildiğiniz gibi Java'da kalıtım vardır. Aynı şekilde interface yapısıda Java dilinde kullanılır. Yazdığımız bir sınıfa kalıtım yolu ile veya interface yolu ile birden çok metot dahil edebiliriz ve bu metotları kullanabiliriz. Ancak kalıtım ile aldığımız bir metodu değiştirmek istersek o zaman override etmemiz yani yeniden yazmamız gerekir. Interface yapısı ile aldığımız metotları da zorunlu olarak tekrardan yazmamız zaten gereklidir. İşte bu işleme override denir.
 
 
 public class Ornek extends Ornek2 {
@@ -1304,8 +1035,8 @@ class Ornek2 {
         System.out.println("hareket edildi");
     }
 }
-  // Overload
-
+  
+	1- Overload
     public void selamVer() {
         System.out.println("Selam");
     }
@@ -1316,7 +1047,7 @@ class Ornek2 {
         System.out.println("Selam " + isim + " " + soyisim);
     }
 
-    // Override
+    2- Override
     public void hareketEt() {
 
         System.out.println("hareketEt metodu override edildi");
@@ -1326,11 +1057,12 @@ class Ornek2 {
 
 
 
-///İnstanceOf///
+		//InstanceOf//
  
 İnstance of şudur;yukarıdaki örneği incelediğimiz de polymorfizm uygulanan bir proje görüyoruz.Fakat bir classın içerisinde bazı koşullarda bazı sonuçlar için instanceOf kullanırız.Bir üst örnektene uyarlicaksak eğer şöyle diyebiliriz.Diyelim insan classı var içinde isim soyisim ve yaş değişkenleri var ve biz öğrenciyi bir insan classı ile yazdırmak istersek öğrencinin ismi soyismi ve yaşını alırız.Okul numarasını almayız çünkü öğrenci classı ile değil insan classı ile yazdırdık.Fakat biz öğretmen yazdırmak istediğimizde sadece isim ve soyismini alacağız,yaşını almak istemiyoruz.O zaman yazdırmak istediğimiz classın içerisinde if(insan instanceof öğretmen) println(isim,soyisim) gibi yazarız.
 
-/// ABSTRACT(SOYUTLAMA) ///
+
+	// ABSTRACTION(SOYUTLAMA) //
 Abstractların mantığı şudur;diyelim bir şirkette çalışanlar var bu çalışanlarda işçi,mühendis,yönetici diye 3’e ayrılıyor.Yani şirketteki her çalışan 3 vasıftan birine sahip,biz bu durumda kod yazarken 5 tane class açarız.Bunlar çalışan,işçi,mühendis,yönetici ve test classıdır.Test classına herhangi bir çalışanın nesnesini oluşturmak istersek mühendis,işçi yada yönetici oluşturabiliriz,fakat çalışan diye de bir nesne oluşturabiliriz.Fakat bu yanlış olur.Çünkü çalışan şirketteki bir eleman değil,mühendisin,işçinin yada yöneticinin genel adıdır.Bu sebepten ötürü Çalışanı abstract ederiz ve test classında çalışan adında artık bir nesne olmaz.Ayrıca bu 3 elemanda kullanılması zorunlu bir metod olmasını istersek(mesela çalışma saati başına 10 lira mühendis için,çalışma saati başına 8 lira işçi için,çalışma saati başına 12 lira yönetici için) bunun için çalışan classının içine bir abstract metodta açabiliriz.Böylelikle calismaSaati adındaki metodu mecburen işçi,mühendis ve yönetici classlarında da kullanmak zorunda kalırız.Abstractlar görev olarak polymorfizme benzer önemli bir farkı abstract ettiğimiz classın nesnesini oluşturamayız.
 ÖRNEK
 ARABA CLASSI
@@ -1490,16 +1222,17 @@ public class Test {
 		}
 		
 
-/// İNTERFACE(ARAYÜZLER) ///
+
+		// INTERFACES(ARAYÜZLER) //
 Abstractlar ile çok benzer fakat aralarındaki fark şu birincisi interfaceler kullanmamızın zorunlu olduğu classları bir arada tutuyor.Diyelim Okul projesi yaptık içinde öğrenci öğretmen çalışan diye classlar var ve biz kisilerilistele,adresleri listele,öğrenci isimlerini listele gibi metotları kesin kullanıcaz.İşte o zaman bir interface açıyoruz.Ve o classları yazıyoruz.İkinci fark abstractlarda değişkenler özellikler falan hepsi extends edilen classa gidiyoruz fakat interfacelerde bir tek metot kullanabiliriz.Üçüncü fark interfacelerin içindeki classların için her zaman boş olur,implement ettiğimiz classlarda doldururuz.Dördüncü ve en büyük fark bir classı sadece bir abstract ile extend edebiliriz.Fakar interfacelerde bi classta birden fazla interfaceyi implement edebiliriz.Ayrıca interface içindeki classlar parametreli olabilir.Kullanımı ise şöyle;abstractlar ile aynı fakat bunda abstract yerine interface yazıyoruz ve abstractlarda extends olayı vardı bunda da extends yerine implements yazıyoruz.Bir class bir aynı anda bir abstractı extends ve birden çok interfaceyi implement edebilir.Ayrıca interface bir classın başına her zaman I koyarız.Mesela İslemler diye bir class oluşturucaz IIslemler yapmalıyız.
 
 public interface KisiIslemleri
-////
+
 public class Kisiİslemleriİmp implements KisiIslemleril
 
 
 
-/// TRY-CATCH ///
+		// TRY-CATCH //
 Bir hata yakalama ve hatayı görmezden gelme olayıdır.Try içine burada hata var mı kontrol et dediğimiz kodları yazıyoruz.Catch içine ise hata neymiş yada hata çıkınca ekranda ne yazsın diye kullanıyoruz.Aşağıdaki kodda 5 elemanlı bir dizi yaptık ama 6 defa yazdırmaya çalıştık.
 
 int [] dizi = new int[5];
@@ -1526,7 +1259,8 @@ int [] dizi = new int[5];
 Hatalı Kod
 ---
 
-///DOSYA OKUMA VE DOSYA YAZMA///
+
+		//READING and WRITING FILE- DOSYA OKUMA VE DOSYA YAZMA//
 package dosyaYazma;
 import java.io.*;   //Bunu kesinlikle dahil ediyoruz.
 import java.util.Scanner;
@@ -1563,7 +1297,8 @@ System.out.println(ekranaYaz);
 System.out.println("Hata = " + e);
 }}}
 
-///FİLE İŞLEMLERİ///
+
+		//FILE OPERATIONS-İŞLEMLERİ//
 
 public static void main(String[] args) {
 File dosya = new File("C:/Users/Hp/Desktop/Dersler");
@@ -1577,138 +1312,26 @@ System.out.println(dosya.lastModified());  //Dosya en son ne zaman düzenlendi
 	Date date = new Date(dosya.lastModified());  
 System.out.println(date);         //Dosya en sonra ne zaman düzenlendi.(Tam Tarih)
 	}
-/// Stack-Heap ///
+	
+	
+	
+		// What is Stack-Heap?//
 Bu ikisi aslında bellekte yer tutan alanlardır.Stack programın içerisindeki bir defa özelleğini tanımladığımız ve bir daha değiştirmediğimiz her kod parçasıdır.Heap ise sonradan değiştirilebilir verilerdir. Stack daha hızlı kullanımı kolay depolama alanıdır.Heap ise daha zahmetlidir.Ayrıca stackte oluşturulan verilen program sonlandırılınca otomatik silinir.Heapte silmeyi manuel olarak yapmalıyız.
 
+
+		//ANNOTATIONS//
 ANNOTATİON=KOD PARÇASINI BİR YERDEN ALDIYSAK,ONU BELİRTMEYE DENİR.ÇOĞUNLUKLA FRAMEWORKLERDE GÖRÜYORUZ.MESELA @OVERRİDE DEMEK ANNOTATİON DEMEKTİR.
 UTİLİTY CLASSLAR=İŞLEMLERİN OLDUĞU CLASSLARDIR.MESELA TOPLA-ÇIKAR-EKLE-SİL GİBİ METODLARIN OLDUĞU CLASSLAR.BU METODLARA STATİC YAPARIZ VE DİĞER CLASSLARDA NEW YAZIP NESNESİNİ OLUŞTURMADAN DA ULAŞABİLİRİZ.STATİC,NEWLEMEDEN YANİ NESNESİNİ OLUŞTURMADAN O METODA ULAŞMAYA YARAR.MESELA KİSİ CLASSI OLUŞTURDUK MAİNDE BİR KİSİ OLUŞTURURKEN NEW KİSİ1 = NEW KİSİ(); YAZARIZ ÇÜNKÜ KİSİ UTİLİTY CLASS DEĞİLDİR.AMA TOPLA-ÇIKAR METODLARININ OLDUĞU UTİLİTY BİR CLASSI MAİNDE ÇAĞIRIRKEN İSLEMLER İSLEM1 = NEW İSLEMLER(); YAZMAMIZA GEREK DUYMAMAK İÇİN METODA STATİC YAZARIZ VE MAİNDE İSLEMLER.TOPLA YAZARAK ULAŞABİLİR.
 DAL(DATA ACCESS LAYER) CLASSLAR -“Veri erişim katmanı”=Yazacağımız classın sonuna Dal yazarsak bu classın veri tabanı ile alakalı olduğunu belirtir.sqlDal,postgreDal,msSqlDal gibi.
 Crud Classlar(Create,Read,Update,Delete)=Bu classların içinde yandaki 4 işlemi yaptığımızı belirtiriz.
 
-///GENERİC CLASSLAR///
+
+		//GENERİC CLASSES//
 BU CLASSLARIN MANTIĞI ŞUDUR.DİYELİM Kİ ABSTRACT BİR KİŞİ CLASSI OLUŞTURDUK.BURAYA İSİM,SOYİSİM KOYDUK.ÖĞRENCİ VE ÖĞRETMEN DİYE DE BAŞKA BİR CLASS OLUŞTURDUK.BURAYADA ÖĞRENCİ NO VE BRANŞ EKSTRA KOYUP KİŞİ CLASSINI EXTEND ETTİK.EN SON BU KİŞİLERİN VERİLERİNE EKLEME-ÇIKARMA-LİSTELEME GİBİ CRUD İŞLEMLER YAPARKEN BİR TANEDE KİŞİİŞLEMLERİ YADA KİŞİMANAGER DİYE BİR CLASS DAHA OLUŞTURURUZ VE BU CLASSIN ADINA PERSONMANAGER<HERHANGİBİSİ EXTENDS KİSİ> GİBİ BİR ŞEY YAZARIZ. BUNDAN SONRA O KİŞİİŞLEMLERİNE YADA KİŞİMANAGERA HANGİ TÜRDE VERİ YOLLARSAK O TÜRDE İŞLEM YAPAR.ÖRNEKTE DAHA İYİ ANLARSIN.BU SAYEDE ÖĞRETMEN İŞLEMLERİ ÖĞRENCİ İŞLEMLERİ GİBİ CLASSLARA İHTİYAÇ KALMIYOR,SADECE KİŞİ İŞLEMLERİ YAPMIŞ OLUYORUZ.
 (EXTENDS KİSİ YAZMAMIZIN SEBEBİ BİR TEK KİŞİYİ EXTEND ETMİŞ CLASSLAR KULLANABİLSİN)
-
-PERSON CLASS
-public abstract class person {
-	private String name;
-	private String surname;
-	private int age;
-	public person() {}
-	public person(String name, String surname, int age) {
-		this.name = name;
-		this.surname = surname;
-		this.age = age;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getSurname() {
-		return surname;
-	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	@Override
-	public String toString() {
-		return "person [name=" + name + ", surname=" + surname + ", age=" + age + "]";
-
-
-STUDENT CLASS
-public class student extends person {
-	private String scNumber;
-	public student() {}
-
-	public student(String name, String surname, int age, String scNumber) {
-		super(name, surname, age);
-		this.scNumber = scNumber;
-	}
-	public String getScNumber() {
-		return scNumber;
-	}
-	public void setScNumber(String scNumber) {
-		this.scNumber = scNumber;
-	}
-	@Override
-public String toString() {
-	return "student [scNumber=" + scNumber + ", Name=" + getName() + ", Surname=" + getSurname()
-			+ ", Age=" + getAge() + "]";
-	}
-
-TEACHER CLASS
-public class teacher extends person{
-	private String branch;
-	public teacher() {}
-	public teacher(String name, String surname, int age, String branch) {
-		super(name, surname, age);
-		this.branch = branch;
-	}
-	public String getBranch() {
-		return branch;
-	}
-
-	public void setBranch(String branch) {
-		this.branch = branch;
-	}
-
-	@Override
-	public String toString() {
-		return "teacher [branch=" + branch + ", Name=" + getName() + ", Surname=" + getSurname()
-				+ ", Age=" + getAge() + "]";
-	}
-
-PERSONMANAGER CLASS
-public class personManager<belliOlmayanDegisken extends person> {
-	private ArrayList<belliOlmayanDegisken> p = new ArrayList<>();
-	
-public void add(belliOlmayanDegisken person) {
-		p.add(person);
-	}
-	
-public void remove(belliOlmayanDegisken person) {
-		p.remove(person);
-	}
-	
-public void show() {
-		for (belliOlmayanDegisken person : p) {
-			System.out.println(person);
-		}
-	}
-
-MAİN CLASS
-	public static void main(String[] args) {
-		personManager<teacher> teachers = new personManager<>();
-		personManager<student> students = new personManager<>();
 		
-		student s1 = new student("Samet", "Çavur", 23, "12345");
-		student s2 = new student("Hakkı", "Sini", 32,"62614");
-		student s3 = new student("Resul","Şaşmaz",28,"13221");
-		students.add(s1);
-		students.add(s2);
-		students.add(s3);
 		
-		teacher t1 = new teacher("Murat", "Yıldıray", 43, "Matematik");
-		teacher t2 = new teacher("Engin", "Yıldırmaz", 27, "Fizik");
-		teacher t3 = new teacher("Tayfun", "Yüksek", 33, "Yazılım");
-		teachers.add(t1);
-		teachers.add(t2);
-		teachers.add(t3);
-		
-		System.out.println("---Students---");
-		students.show();
-		System.out.println("---Teachers---");
-		teachers.show();
-		
-///ESNEK BAĞLANTI///
+		//LOOSELY COUPLED-ESNEK BAĞLANTI//
 BU BİR KONU DEĞİL BİR İŞLEM GİBİ BİR ŞEY.AMACI İSE DİYELİM BİR İNTERFACE OLUŞTURDUK VE O İNTERFACEYİ İMPLEMENT EDEN BİR XYZ CLASSI VAR BU PROJEYİ NORMALCE KULLANIYORUZ AMA Bİ ZAMAN SONRA XYZ CLASSINI ABC OLARAK DEĞİŞTİRMEK,GÜNCELLEMEK ZORUNDA KALDIK.İŞTE O ZAMAN MAİN CLASSTA XYZ YE AİT HERŞEYİ DEĞİŞTİRMEK YERİNE XYZ Yİ OLUŞTURDUĞUMUZ NESNEYİ ABC OLARAK DEĞİŞTİRİYORUZ.GÜNCELLEME VE DEĞİŞTİRME İŞLEMİNDE ÇOK FAZLA ZAMAN VE KOLAYLIK KAZANIYORUZ.ÖRNEĞİN;
 İNTERFACE CLASSI
 public interface I_arabaIslemleri {
@@ -1817,7 +1440,8 @@ public class main {
 		}}
 
 
-///COLLECTİON///
+
+		//COLLECTIONS//
 (SET)
 import java.util.*; (BUNU HER ZAMAN DAHİL EDİYORUZ.)
 public class mainSet {
@@ -1867,12 +1491,6 @@ public class mainSet {
 		sayilar.forEach(sayi -> System.out.println(sayi+" "));
 	}
 }
-
-
-
-
-
-
 
 
 
@@ -1932,13 +1550,15 @@ public class mainSet {
 	}}
 
 
-///Date///
+		//Date//
 Date date = new Date();
 		System.out.println(date);
 		//Sadece gün ay yıl olarak yazdırma//
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 		System.out.println(dateFormat.format(date));
-///Calender///
+		
+		
+		//Calender//
 Calendar cal = Calendar.getInstance();
 		cal.set(2021,1,27);
 		System.out.println(cal.getTime());
@@ -1952,7 +1572,8 @@ Calendar cal = Calendar.getInstance();
 		cal1.set(Calendar.DAY_OF_YEAR, 26);
 		System.out.println(cal1.getTime());
 
-///Threading-MultiThreading///
+
+		//Threading-MultiThreading//
 Bunun amacı aynı anda 2 işlem yapmak.Örneğin bi for döngüsü oluşturduk ve 10 na kadar sayacak.Bir for döngüsü daha oluşturduk oda 10 dan geri sayacak.Ama normalde ilk 10 na kadar gidip sonra ikinci for çalışır 10 dan geri sayar.Bu multi threading işlemi sayesinde ilk for 10 na kadar sayarken ikinci forda aynı anda 10 dan geri sayıyor.
 
 KRONOMETRE CLASSI
@@ -1978,12 +1599,3 @@ kronometre kro1 = new kronometre("İlk Kronometre");
 		Thread t2 = new Thread(kro2);
 		t1.start();
 		t2.start();
-
-
-
-
-
-
-
-
-

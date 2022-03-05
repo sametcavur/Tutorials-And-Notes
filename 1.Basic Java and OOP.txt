@@ -1,5 +1,6 @@
-color:\s*#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
-		//JVM-JRE-JDK//
+		```diff
+		+ //JVM-JRE-JDK//
+		```
 JVM(Java Virtual Machine)=Java kodlarını bütün işletim sistemlerinde kullanabilmemiz için kodları Java Byte Code’e çevirir, .java uzantılı dosyaları değilde .class uzantılı okuyabilir.Bunun sayesinde “Kodu bir kere yaz,bütün işletim sistemlerinde çalıştır” sözünün mantığını anlıyoruz.
 JRE(Java Runtime Environment)=JVM sayesinde java kodlarından dönüştürülmüş byte code’leri diğer makinalarda kullanmamızı sağlar.Bunun yanısıra bazı temel kütüphaneleride barındır.
 JDK(Java Development Kit)=Java dili ile geliştirme yapamız içi gereken araçları içeren pakettir.

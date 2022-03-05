@@ -1,0 +1,251 @@
+VERİ TABANI DERS NOTLARI
+Veri Tabanı İşlemleri
+Veri Çağırma
+•	SELECT * FROM OGRENCİLER;(OGRENCİLER TABLOSUNDAKİ TÜM VERİLERİ GETİR.)
+•	SELECT ADİ,SOYADİ FROM OGRENCİLER;(OGRENCİLER TABLOSUNDAKİ KİŞİLERİN ADİ VE SOYADİNİ GETİR.)
+•	SELECT ADİ,SOYADİ FROM OGRENCİLER WHERE OGRENCİID=2; (OGRENCİLER TABLOSUNDAN OGRENCİID Sİ 2 OLAN KİŞİLERİN ADİ VE SOYADİNİ GETİR.)
+•	SELECT * FROM OGRENCİLER WHERE OGRENCİID=1; (OGRENCİLER TABLOSUNDAN OGRENCİID Sİ 1 OLAN KİŞİLERİN TÜM VERİLERİNİ GETİR.)
+•	SELECT * FROM OGRENCİLER WHERE ADİ=’SAMET’ AND SOYADİ=’ÇAVUR’; (OGRENCİLER TABLOSUNDAN ADİ SAMET VE SOYADİ ÇAVUR OLAN KİŞİLERİN TÜM VERİLERİNİ GETİR.)
+•	SELECT ADİ,SOYADİ FROM OGRENCİLER WHERE ADİ=’SAMET’; (OGRENCİLER TABLOSUNDAN ADİ SAMET OLAN KİŞİLERİN ADİ VE SOYADİNİ GETİR.)
+---------------------------------------------------------------
+VERİ EKLEME
+•	INSERT INTO OGRENCİLER(OGRENCİID,ADİ,SOYADİ,DOGUMYİLİ,OKULNO)
+VALUES (3,'MEHMET','HAKAN',1990,'1236');(OGRENCİLER TABLOSUNA YANDAKİ GİRİLEN VERİLERİ EKLE)
+---------------------------------------------------------------
+VERİ SİLME
+•	DELETE FROM OGRENCİLER WHERE OGRENCİID=3;(OGRENCİLER TABLOSUNDAN OGRENCİID Sİ 3 OLAN KİSİNİN VERİLERİNİ SİL.)
+---------------------------------------------------------------
+VERİ GÜNCELLEME
+•	UPDATE OGRENCİLER SET ADİ="ABDULSAMET" WHERE OGRENCİID=1; (OGRENCİID Sİ 1 OLAN VERİNİN ADİNİ ABDULSAMET OLARAK DEĞİŞTİR,WHERE BURADA ‘SAMET’ YAZAMAYIZ ÇÜNKÜ SAMET ADINDA BİR ÇOK VERİ OLABİLİR VE BUNLARIN HEPSİNİN ADINI ABDULSAMET YAPMAK YANLIŞ OLABİLİR.)
+•	UPDATE OGRENCİLER SET ADİ="HAKKI", SOYADİ="BAŞ", DOGUMYİLİ=1991 ,OKULNO="1532" WHERE OGRENCİID=2; (OGRENCİID Sİ 2 OLAN KİSİNİN VERİLERİNİ SET KOMUTUNDA GİRDİĞİMİZ VERİLER İLE DEĞİŞTİR.)
+---------------------------------------------------------------
+TABLO OLUŞTURMA
+•	CREATE TABLE ADRES(ADRESID İNT PRIMARY KEY NOT NULL,SOKAK VARCHAR(15),MAHALLE VARCHAR(15),SEHİR VARCHAR(15)); (ADRES ADINDA,PRİMARY KEYİ ADRESID OLAN VE BOŞ BIRAKILAMAZ OLAN,MAX 15 HARFLİ SOKAK,MAHALLE,SEHİR SÜTUNLARI OLAN BİR TABLO OLUŞTURDUR)
+
+
+
+
+
+
+
+
+
+JDBC DERS NOTLARI
+1.VERİ TABANINA BAĞLANMA
+BAĞLANTIYI KURMAMIZ İÇİN İLK ÖNCE ÇALIŞACAĞIMIZ JAVA PROJESİNE KÜTÜPHANE OLARAK CONNECTOR JAR BAĞLAMAMIZ GEREK BUNUN İÇİNSE SOLDAN PROJENİN ÜSTEKİ SAĞ TIKLADIK BUİLDPATH>ADDLİBRARİES>USERLİBRARİES>USERLİBRARİES>NEW DEDİK VE BİR SQL PAKET İSMİ VERDİK SONRA SAĞDAKİ ADD EXTERNALJARS’A BASIP AŞŞAĞIDAKİ LİNTEN İNDİRDİĞİMİZ JARI EKLEDİK. HTTPS://DEV.MYSQL.COM/DOWNLOADS/CONNECTOR/J/8.0.HTML (SELECT OPERATİNG INDEPENDENT=PLATFORM INDEPENDENT-ZIP ARCHVİVE) 
+*STATEMENT YERİNE PREPAREDSTATEMENT KULLANMAK UYGULAMAYI DAHA DİNAMİK HALE GETİRİR.
+---DBHELPER CLASSI---
+BU CLASSIN AMACI VERİ TABANINI JAVAYA BAĞLARKEN SÜREKLİ UĞRAŞMAMAK,BÖYLE BİR CLASS OLUŞTURUYORUZ VE İÇİNE SQLE BAĞLANMA METODUNU YAZIYORUZ.
+
+import java.sql.*;  //Bunu her zaman yazıyoruz.
+public class dbHelper {
+public Connection getConnection() throws SQLException {		        return DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");} /*(world veritabanındaki tablomuzun adı,root UserID miz ve 1234 ise UserPasswordumuz,Veritabanını kurarken en başta belirledik.)*/
+	
+	public void showErrorMessage(SQLException e) { //(Bu bağlantı kurarken hata çıkmasına karşın yazdığımız metod)
+	System.out.println("SQL Hatası:"+ e.getLocalizedMessage());
+	System.out.println("Hata Kodu:"+ e.getErrorCode());        }}
+
+---MAİN CLASSI---
+import java.sql.*;  //Bunu her zaman yazıyoruz.
+public class main {
+public static void main(String[] args) throws SQLException {
+		Connection connection = null;
+		dbHelper dbHelper = new dbHelper();
+		try {
+			connection = dbHelper.getConnection();
+			System.err.println("SQL Bağlantısı Oluştu");
+		} 
+		catch (SQLException e) {
+			dbHelper.showErrorMessage(e);
+		}
+		finally {
+			connection.close();
+		}	
+	}}
+
+
+
+
+
+
+
+
+2.Veri tabanındaki verileri çağırıp Javada gösterme(SELECT)
+
+MAİN CLASSI
+public static void main(String[] args) throws SQLException {
+	Connection connection = null;
+	Statement statement=null;   //Şöyle bir değişken oluşturduk
+	ResultSet resultset;     //Şöyle de bir değişken oluşturduk,Bunu sadece Select işleminde kullanıyoruz.
+	dbHelper dbHelper = new dbHelper();
+	try {
+	connection = dbHelper.getConnection();
+	System.err.println("SQL Bağlantısı Oluştu");
+	statement = connection.createStatement();   
+	resultset = statement.executeQuery("SELECT Name,District FROM city;"); 
+	while(resultset.next()) {
+	System.out.print(resultset.getString("Name"));  //Name Verilerini Getir
+System.out.println("/"+resultset.getString("District"));   //District Verilerini Getir.      }} 	
+catch (SQLException e) {
+	dbHelper.showErrorMessage(e);}
+finally {
+	connection.close();  //En son Try Catchi kapatmayı unutmuyoruz.  }}}
+
+DBHELPER CLASSI
+import java.sql.*;  //Bunu her zaman yazıyoruz.
+public class dbHelper {
+public Connection getConnection() throws SQLException {		        return DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");} /*(world veritabanındaki tablomuzun adı,root UserID miz ve 1234 ise UserPasswordumuz,Veritabanını kurarken en başta belirledik.)*/
+	
+	public void showErrorMessage(SQLException e) { //(Bu bağlantı kurarken hata çıkmasına karşın yazdığımız metod)
+	System.out.println("SQL Hatası:"+ e.getLocalizedMessage());
+	System.out.println("Hata Kodu:"+ e.getErrorCode());        }}
+
+
+
+3.JAVADAN VERİ TABANINA VERİ EKLEME(INSERT INTO)
+==ÜSTTEKİ DBHELPER CLASSI YİNE VAR OLACAK
+import java.sql.*;
+	public class main {
+	public static void main(String[] args) throws SQLException {	
+	Connection connection = null;
+	PreparedStatement statement = null;
+	dbHelper db = new dbHelper();
+	try {
+	connection = db.getConnection();
+	System.out.println("SQL Connection is succesfully");
+	statement = connection.prepareStatement("insert into city (Name,CountryCode,District,Population) VALUES ('Balik','TUR','Balikesir',350000)");
+	statement.executeUpdate();
+	System.out.println("Kayıt Eklendi.");}
+	catch (SQLException e) {
+	System.out.println("SQL Connection is not succesfully");
+	db.showErrorMessages(e);      }
+	finally {
+	statement.close();
+	connection.close();     }}}
+
+Eklenecek Veriyi Kullanıcıdan Alma İşlemi
+dbHelper Classı var
+public class main {
+public static void main(String[] args) throws SQLException {	
+	Connection connection = null;
+	PreparedStatement statement = null;
+	dbHelper db = new dbHelper();
+	try {
+	connection = db.getConnection();
+	System.out.println("SQL Connection is succesfully");
+	String sql = "insert into city (Name,CountryCode,District,Population) VALUES (?,?,?,?)";
+	statement = connection.prepareStatement(sql);
+	statement.setString(1, "Zeytinburnu");
+	statement.setString(2, "TUR");
+	statement.setString(3, "ISTA");
+	statement.setInt(4, 1234567);
+	statement.executeUpdate();
+	System.out.println("Kayıt Eklendi.");        }
+	catch (SQLException e) {
+	System.out.println("SQL Connection is not succesfully");
+	db.showErrorMessages(e);        }
+	finally {
+	statement.close();
+	connection.close();       }
+}
+}
+
+
+4. VERİ TABANINA TOPLU VERİ EKLEME( BATCH INSERT INTO)
+public class DbProcces {
+
+public Connection connection(List<Personal> personal) {
+	Logger logger = LogManager.getLogger();
+	PreparedStatement statement = null;
+	DbConnection db = new DbConnection();
+	Connection connection = db.openConnection();
+String sorgu = "INSERT INTO personal(personalID,adi,soyadi,dogumYili,personelNo) VALUES (?,?,?,?,?)";
+	try {
+		statement = connection.prepareStatement(sorgu);
+	for (Personal personel : personal) {
+		statement.setInt(1, personel.getPersonalID());
+		statement.setString(2, personel.getAdi());
+		statement.setString(3, personel.getSoyadi());
+		statement.setInt(4, personel.getDogumYili());
+		statement.setInt(5, personel.getPersonalNo());
+			statement.addBatch();
+			}
+		statement.executeBatch();
+		logger.info("Sorgu Çalıştı");
+			
+		} catch (SQLException e) {
+		logger.warn("Sorgu Çalışmadı" + e);
+		}
+		return connection;
+	}
+}
+
+
+5.Javadan VeriTabanındaki Verileri Güncelleme-Değiştirme (UPDATE)
+import java.sql.*;
+public class main {
+public static void main(String[] args) throws SQLException {	
+Connection connection = null;
+	PreparedStatement statement = null;
+	dbHelper db = new dbHelper();
+		try {
+		connection = db.getConnection();
+		System.out.println("SQL Connection is succesfully");
+		String sql = "update city set name ='Bestelsiz' where ID='4086'";			statement = connection.prepareStatement(sql);
+			statement.executeUpdate();
+			System.out.println("Kayıt Güncellendi.");
+			}
+		catch (SQLException e) {
+			System.out.println("SQL Connection is not succesfully");
+			db.showErrorMessages(e);
+			}
+		finally {
+			statement.close();
+			connection.close();           }    }}
+
+
+Kullanıcı tarafından Veritabanındaki Veriyi Güncelleme
+Connection connection = null;
+PreparedStatement statement = null;
+	dbHelper db = new dbHelper();
+	try {
+		connection = db.getConnection();
+		System.out.println("SQL Connection is succesfully");
+		String sql = "update city set Name=? where ID=4085"; //Name? ,SURNAME ? diyerek birden fazla veriyide güncelleyebiliriz.
+		statement = connection.prepareStatement(sql);
+		System.out.println("Girmek istediğiniz bölgeyi yazınız.");
+		Scanner scan= new Scanner(System.in);
+		String girilenBolge = scan.next();
+		statement.setString(1, girilenBolge);
+		statement.executeUpdate();
+		System.out.println("Kayıt Güncellendi.");        }
+	catch (SQLException e) {
+		System.out.println("SQL Connection is not succesfully");
+		db.showErrorMessages(e);        }
+	finally {
+		statement.close();
+		connection.close();           }    }}
+
+
+6.Javadan VeriTabanındaki Verileri Silme(DELETE)
+
+public static void main(String[] args) throws SQLException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		dbHelper db = new dbHelper();
+		try {
+			connection = db.getConnection();
+			System.out.println("Bağlantı Başarılı");
+			String silinenVeri = "Delete from city where ID='4086'";
+			statement = connection.prepareStatement(silinenVeri);
+			statement.execute();
+		} catch (SQLException e) {
+			db.showErrorMessages(e);
+		}
+		finally {
+			connection.close();
+			statement.close();
+			System.out.println("SQL Kapatıldı");
+		}		}          }
+
+

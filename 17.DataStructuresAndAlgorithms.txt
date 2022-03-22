@@ -1,0 +1,68 @@
+*Daha açıklayıcı ve kod üzerinde örnekler ile görmek için Github hesabımdaki dataStructureAndAlgorithms adlı repoyu inceleyebilirsiniz.
+*You can find this topic cleaner and some examples in dataStructureAndAlgorithms repository on my github account.
+		
+
+		
+		
+		//Dynamic Arrays (Dinamik Diziler) ve LinkedList(Bağlı Listeler)//
+
+Dinamik diziler java'da kaç adet elemanı bulunduğunu baştan belirttiğimiz dizilerdir.
+
+int dizi[] = new int[20];   -> gibi
+
+Listeler ise java.util.LinkedList; paketini yada bunların altındaki diğer listeler(ArrayList vs.) için kendi paketlerini çağırarak kullanabileceğimiz listelerdir.
+
+List<Integer> liste = new LinkedList();  -> gibi
+
+peki bunların birbirlerine göre artıları-eksileri nelerdir?
+
+*Arraylerde elemanlar yanyana tutuldukları için ulaşılabilirlik kolaydır. 1000 elemanlı array ile 3 elemanlı arrayde herhangi bir elemanı arayıp bulmanın maliyeti aynı olacaktır.(Random Access Özelliği)
+*Fakat LinkedList'lerde her eleman kendinden sonraki elemanın location bilgisini tuttuğu için aradığımız elemana kadar gidip ondan önceki elemanlara da uğrayacaktır. Buda bize ekstra maliyet demektir.
+*LinkedListlerde ayrıca listenin ortasından sonundan yada başından eleman çıkardığımızda çıkarılan elemanın önceki elemanı kendinden sonraki elemanının location bilgisinde değişiklik gerçekleştireceği için yine ekstra maliyet yaratacaktır.
+*Arraylerde eleman sayısını en baştan belirttiğimiz için daha az eleman eklediğimiz durumda hafızadan fazlaca yer kaplayacak,array size'ından daha fazla eleman eklediğimizde ise buna izin vermeyecektir.
+
+Kısacası eleman sayısının baştan belli ve değişkenlik göstermeyeceği durumlarda array, bunun dışındaki diğer durumlarda listeleri kullanmak daha mantıklıdır.
+
+
+		//LinkedList(Bağlı Listeler)//
+Bu bağlı listelerde önemli olan nokta her bir eleman kendinden sonraki elemanın yerini tutar.
+Ne demek bu?
+Diyelim ki listemizde 2 eleman var [15,25], buradaki 15 değeri 25 değerinin location bilgisini tutuyor ve 25 değeri ise kendinden sonra eleman olmadığı için null değerini tutacaktır.
+Şayet ekleme veya silme yaparsak [15,20,25], duruma göre location bilgilerini güncellememiz gerekiyor. 15 artık 25 in değilde 20 olan değerin location bilgisini tutmalı ve 20 ise kendinden sonra gelen 25 değerinin location bilgisini tutmalıdır.
+
+
+		//Stack(Yığın)//
+Bu veri yapısına göre son giren ilk çıkar mantığı vardır.(LIFO = Last In First Out)
+LIFO mantığı kısaca şöyledir; Diyelim ki 15,20,25,30 olarak dört değerimiz stack içerisinde tutuluyor.Bu stack'e son giren 30 olduğu için ilk silme işleminde 30 silinecek ve sırasıyla 25,20,15 diye gidecektir.
+Stack içerisinde yeni bir veri girmeye push, bir veri silme işlemine ise pop denir.
+Stack yapısında linkedlistlerde olduğu gibi baştan yada aradan silme yoktur. Silme durumunda her zaman son giren ilk silinecektir.
+
+
+		//Queue(Kuyruk)//
+Bu veri yapısına göre ilk giren ilk çıkar mantığı vardır.(FIFO = First In First Out)
+FIFO mantığı kısaca şöyledir; Diyelim ki 15,20,25,30 olarak dört değerimiz stack içerisinde tutuluyor.Bu stack'e ilk giren 15 olduğu için ilk silme işleminde 15 silinecek ve sırasıyla 20,25,30 diye gidecektir.
+Queue içerisinde yeni bir veri girmeye enqueue, bir veri silme işlemine ise dequeue denir.
+Queue yapısında linkedlistlerde olduğu gibi sondan yada aradan silme yoktur. Silme durumunda her zaman ilk giren ilk silinecektir.
+
+
+		//HashTable(Kesikli Tablo//  
+Hashtable key-value ilişkisi ile değerleri tutan Collection framework'ün bir üyesidir.Konunun karmaşıklığından ötürü örnek ile anlatmaya çalışacağım.
+Örneğin hashtablemız içerisinde 4 eleman olsun. Yani 0-1-2-3 indexten oluşuyor. Keyimiz sırasıyla 14-15-16-18 ve valuelerimiz String değerler olsun. 
+14 olan key index sayısına(4) bölünce(mod alınca) kalan değer 2 olacaktır.   -> Bu işleme *hash alma* yada *hash function* denir
+15 olan key index sayısına(4) bölünce(mod alınca) kalan değer 3 olacaktır.
+16 olan key index sayısına(4) bölünce(mod alınca) kalan değer 0 olacaktır.
+18 olan key index sayısına(4) bölünce(mod alınca) kalan değer 2 olacaktır.
+	Ve 
+0.indeximizin devamına 16. keyimizin valuesi gelecektir.
+1.indeximizin devamı null'ı gösterecektir.
+2.indeximizin devamına 14 keyimizin valuesi ve sonrasına 18 keyimizin valuesi gelecektir.
+3.indeximizin devamına 15 keyimizin valuesi gelecektir.
+
+Kısacası hashtable list içerisinde liste benzer bir yapıdadır.Ve list içerisindeki listelere gelecek değerler, listedeki nesnelerimizin keylerinin index sayılarına bölümüyle belli oluyor.
+		
+ÖNEMLİ NOTLAR : 
+*Üstteki mod alma işlemine hash alma yada hash function demiştik. Fakat bazı keyler integer değilde String yada başka bir türde olabilir. O zaman ise o değerlerin hashCode karşılığına bakılır ve ona göre yerleştirme yapılır.
+*Aynı hashCodelara sahip bazı String key'ler istisna olarak vardır.("Siblings", "Teheran", "Aa", "BB" aynı hashCode'ları döndürür).Bu çakışmalara *Hash Collision* denir.	
+		
+		
+

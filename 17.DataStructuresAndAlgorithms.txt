@@ -20,12 +20,12 @@
 
 
 				Veri Yapıları(Data Structures)
-
-	  Doğrusal Veri Yapıları      		 Doğrusal Olmayan Veri Yapıları 
+	
+	  Doğrusal Veri Yapıları      			 Doğrusal Olmayan Veri Yapıları 
 	 (Linear Data Structures)			(Non Linear Data Structures)
 	
 	1.Dizi(Array)						1.Ağaç(Tree)
-	2.Bağlı Liste(LinkedList)			2.Graf(Graph)
+	2.Bağlı Liste(LinkedList)				2.Graf(Graph)
 	3.Yığın(Stack)
 	4.Kuyruk(Queue)
 

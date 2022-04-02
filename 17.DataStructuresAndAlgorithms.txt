@@ -2,33 +2,77 @@
 *You can find this topic cleaner and some examples in dataStructureAndAlgorithms repository on my github account.
 		
 
+				  Veri Tipleri(Data Types):
+			 	  /				 	\
+		     	 /					 \
+		    	     /					  \
+		   	    /				        \
+		İlkel Veri Tipleri				Referans Veri Tipleri
+		(Primitive)					(Reference)
 		
+		1.byte						1.Array
+		2.short						2.Interface	
+		3.int						3.Class(Integer,String,Boolean etc.)
+		4.long
+		5.float
+		6.double
+		7.char
+		8.boolean
+
+
+
+
+				Veri Yapıları(Data Structures)
+    				 /				 	  \
+		     	/					   \
+		    	    /					    \
+		   	   /					     	\
+	  Doğrusal Veri Yapıları      		 Doğrusal Olmayan Veri Yapıları 
+	 (Linear Data Structures)			 (Non Linear Data Structures)
+	
+	1.Dizi(Array)						 1.Ağaç(Tree)
+	2.Bağlı Liste(LinkedList)			 2.Graf(Graph)
+	3.Yığın(Stack)
+	4.Kuyruk(Queue)
+
+Doğrusal Veri Yapıları(Linear Data Structures) : Doğrusal bir veri yapısı, veri elemanlarını sıralı olarak düzenler. 
+Veri öğeleri kendisinden önceki ve sonraki öğeyle ilişkili olabilir.
+
+Doğrusal Olmayan Veri Yapıları(Non Linear Data Structures): Doğrusal olmayan veri yapısı, bir veri öğesini, birçok veri öğesine bağlı olarak düzenler. 
+Böylece belirli bir veri öğesinin, bir veya birden fazla öğeye ulaşma imkanı vardır.
+
+
 		
-		//Dynamic Arrays (Dinamik Diziler) ve LinkedList(Bağlı Listeler)//
-
-Dinamik diziler java'da kaç adet elemanı bulunduğunu baştan belirttiğimiz dizilerdir.
-
+		//Arrays (Diziler)//
+Diziler java'da kaç adet elemanı bulunduğunu baştan belirttiğimiz aynı türden verileri bir arada tutan yapılardır.
 int dizi[] = new int[20];   -> gibi
 
-Listeler ise java.util.LinkedList; paketini yada bunların altındaki diğer listeler(ArrayList vs.) için kendi paketlerini çağırarak kullanabileceğimiz listelerdir.
 
-List<Integer> liste = new LinkedList();  -> gibi
 
-peki bunların birbirlerine göre artıları-eksileri nelerdir?
+		//Dynamic Arrays (Dinamik Diziler)//
+Arrayler ile aynı özelliği aynı işlevi sunuyor fakat aralarındaki en büyük fark dinamik dizilerde eleman sayısını baştan belirtmeyiz, eklediğimiz yada sildiğimiz elemana göre arrayin boyutu uzayabilir,
+yada daha da kısalabilir. Fakat hafızada arraylere göre daha fazla yer tutar.Ayrıca arraylere göre daha yavaştır.
+Kısacası eleman sayısının baştan belli ve değişkenlik göstermeyeceği durumlarda array, bunun dışındaki diğer durumlarda dinamik array kullanmak daha mantıklıdır.
 
+
+
+		//LinkedList(Bağlı Listeler)//
+Listeler, java.util.LinkedList; paketini yada bunların altındaki diğer listeler(ArrayList vs.) için kendi paketlerini çağırarak kullanabileceğimiz yapılardır.
+List<Integer> liste = new List();  -> gibi
+Bu bağlı listelerde önemli olan nokta her bir eleman kendinden sonraki elemanın yerini tutar.
+Ne demek bu?
+Diyelim ki listemizde 2 eleman var [15,25], buradaki 15 değeri 25 değerinin location bilgisini tutuyor ve 25 değeri ise kendinden sonra eleman olmadığı için null değerini tutacaktır.
+Şayet ekleme veya silme yaparsak [15,20,25], duruma göre location bilgilerini güncellememiz gerekiyor. 15 artık 25 in değilde 20 olan değerin location bilgisini tutmalı ve 
+20 ise kendinden sonra gelen 25 değerinin location bilgisini tutmalıdır.
+
+
+
+		//Arrays (Diziler)  VS  LinkedList(Bağlı Listeler)//
 *Arraylerde elemanlar yanyana tutuldukları için ulaşılabilirlik kolaydır. 1000 elemanlı array ile 3 elemanlı arrayde herhangi bir elemanı arayıp bulmanın maliyeti aynı olacaktır.(Random Access Özelliği)
 *Fakat LinkedList'lerde her eleman kendinden sonraki elemanın location bilgisini tuttuğu için aradığımız elemana kadar gidip ondan önceki elemanlara da uğrayacaktır. Buda bize ekstra maliyet demektir.
 *LinkedListlerde ayrıca listenin ortasından sonundan yada başından eleman çıkardığımızda çıkarılan elemanın önceki elemanı kendinden sonraki elemanının location bilgisinde değişiklik gerçekleştireceği için yine ekstra maliyet yaratacaktır.
 *Arraylerde eleman sayısını en baştan belirttiğimiz için daha az eleman eklediğimiz durumda hafızadan fazlaca yer kaplayacak,array size'ından daha fazla eleman eklediğimizde ise buna izin vermeyecektir.
 
-Kısacası eleman sayısının baştan belli ve değişkenlik göstermeyeceği durumlarda array, bunun dışındaki diğer durumlarda listeleri kullanmak daha mantıklıdır.
-
-
-		//LinkedList(Bağlı Listeler)//
-Bu bağlı listelerde önemli olan nokta her bir eleman kendinden sonraki elemanın yerini tutar.
-Ne demek bu?
-Diyelim ki listemizde 2 eleman var [15,25], buradaki 15 değeri 25 değerinin location bilgisini tutuyor ve 25 değeri ise kendinden sonra eleman olmadığı için null değerini tutacaktır.
-Şayet ekleme veya silme yaparsak [15,20,25], duruma göre location bilgilerini güncellememiz gerekiyor. 15 artık 25 in değilde 20 olan değerin location bilgisini tutmalı ve 20 ise kendinden sonra gelen 25 değerinin location bilgisini tutmalıdır.
 
 
 		//Stack(Yığın)//
@@ -38,11 +82,13 @@ Stack içerisinde yeni bir veri girmeye push, bir veri silme işlemine ise pop d
 Stack yapısında linkedlistlerde olduğu gibi baştan yada aradan silme yoktur. Silme durumunda her zaman son giren ilk silinecektir.
 
 
+
 		//Queue(Kuyruk)//
 Bu veri yapısına göre ilk giren ilk çıkar mantığı vardır.(FIFO = First In First Out)
 FIFO mantığı kısaca şöyledir; Diyelim ki 15,20,25,30 olarak dört değerimiz stack içerisinde tutuluyor.Bu stack'e ilk giren 15 olduğu için ilk silme işleminde 15 silinecek ve sırasıyla 20,25,30 diye gidecektir.
 Queue içerisinde yeni bir veri girmeye enqueue, bir veri silme işlemine ise dequeue denir.
 Queue yapısında linkedlistlerde olduğu gibi sondan yada aradan silme yoktur. Silme durumunda her zaman ilk giren ilk silinecektir.
+
 
 
 		//HashTable(Kesikli Tablo//  
@@ -65,4 +111,106 @@ Kısacası hashtable list içerisinde liste benzer bir yapıdadır.Ve list içer
 *Aynı hashCodelara sahip bazı String key'ler istisna olarak vardır.("Siblings", "Teheran", "Aa", "BB" aynı hashCode'ları döndürür).Bu çakışmalara *Hash Collision* denir.	
 		
 		
+
+			//ALGORİTHMS(ALGORİTMALAR)//
+	//Algoritma Analizi-(Analysis of Algorithms)//
+
+RAM MODELİ (Random Access Machine) : Farklı bilgisayarlarda algoritmaların ne kadar zaman harcayacağını hesaplamak için kullanırız.
+Bu modele göre belli özellikle olan tek bir makina düşünüyoruz. Buna random access machine diyoruz. Ve her bir algoritmanın ne kadar performanslı
+olduğunu düşünsel olarak hesaplamaya çalışıyoruz.
+
+Ram Modelinin Kuralları:(Rules of RAM Model)
+1-Basit işlemler 1 birim zaman alır(+,-,*,/,OR,AND).
+2-Döngüler dönüş-iterasyon sayısı * döngü içindeki işlem sayısı kadar zaman alır.
+3-Hafızadan okuma 1 birim zaman alır.
+
+
+ASİMPTOTİK ANALİZ(Asymptotic Analysis): Bir algoritmanın çalışma performansının (runtime performance) sınırlarını matematiksel olarak belirlemek için kullanılan bir yöntemdir. 
+Algoritma adımlarının çalışması için gerekli sürenin (zaman karmaşıklığı-time complexity) alt ve üst sınırlarının matematiksel olarak ifade edilmesini sağlayan bir algoritma analizi metodudur.
+
+TİME COMPLEXİTY(Zaman Karmaşıklığı): Bu bir algoritma performans ölçüm metodudur. Elimizdeki algoritmanın worst case,best case ve average case olarak en kötü,en iyi ve ortalama durumlarda ne kadar sürede
+yanıt vereceğini hesaplarız. Ve caselere harcadığı süreyi tespit ederiz. Burada aradığımız süre bir zaman değil yaptığımız işlem sayısıdır. Bu metodu bir çok algoritma üzerinde kullanabiliriz.(Binary Search Algoritması,
+Brute-Force Algoritması,Linear Search Algoritması vs.)
+
+Time Complexity'de genel olarak üç temel asimptotik notasyon vardır fakat en kötü durumu bulan Big-O Notasyonu en çok kullanılandır. Bunun sebebi en kötü durum bizim işimizi görecek kadar iyiyse 
+average ile best case kesin bizi tatmin edecektir mantığıyla ilerlediğimizdendir.
+
+Asimptotik Notasyonlar şöyledir:
+1.Big-O Notasyonu
+2.Omega Notasyonu
+3.Teta Notasyonu
+
+Big-O Notasyonu: Algoritma analizindeki zaman karmaşıklığında üst sınırı(upper bound) tanımlar. Algoritmanın büyüme hızını (growth rate) temsil etmek için kullanılır.
+Bir algotirmanın karmaşıklık analizi yapıldıktan sonra ortaya çıkan ifadeleri sadeleştirerek algoritmanın en sade karmaşıklığının bulmamızı sağlar.
+
+Omega Notasyonu(Omega Notation): Asimptotik alt sınırı(lower bound) ifade eder. Bu notasyonla algoritma zaman açısından en iyi duruma(best case) ulaşmış olur. Big-O notasyonunun tersidir.
+
+Teta Notasyonu(Teta Notation): Alt sınır(lower bound) ile üst sınır(upper bound) arasında kalan ortalama bir karmaşıklığı ifade eder. Big-O notasyonu ile Big Omega notasyonu arasında yer alır.
+
+
+
+	//HEAP-STACK//
+Bu iki kavram RAM'in mantıksal alanlarıdır. Kodlar içinde tanımladığımız değişkenlerin tutulduğu bölümlerdir. Kodlar içinde tanımladığımız value tipler yani ilkel tipler direk stack üzerinde konumlandırılır.
+Fakat Referans tiplerin(Arrays, Interfaces, Classes) pointerları stack üzerinde fakat referansları heap üzerinde tutulur.
+ Örneğin;
+
+int sayi2 = 10; -> bu şekilde bir tanımlama yaptığımızda stack içerisinde "sayi2 = 10;" diye bir alan ayrılır.
+
+Integer sayi2 = new Integer(10); -> şu şekilde bir tanımlama yaparsak "sayi2" stack içerisinde tutulacaktır fakat "new Sayi(10);"(tam olarak böyle değil bunun adresi tutuluyor) referansi heap içinde yer edinecektir.
+
+Bu konuyu kavrayınca aslında neden value tiplere değer atamayınca da default değerlere sahip olduklarını, ve referans tiplere değer atamayınca null değerlerine sahip olduğunu anlıyoruz.
+
+int sayi1; -> default olarak 0 atandı
+double sayi2; -> default olaran 0.0 atandı
+
+Integer sayi3; -> new eklemediğimiz sürece değer null olacaktır. 
+Double sayi4;	-> new eklemediğimiz sürece değer null olacaktır.
+
+	public class deneme {
+		int sayi1;
+		Integer sayi2;
+
+		public static void main(String[] args) {
+			deneme deneme = new deneme();
+			System.out.println(deneme.sayi1);
+			System.out.println(deneme.sayi2);
+		}	}
+
+	-> Çıktı : 
+			0 
+			null
+
+
+Stack LIFO mantığıyla çalışır. Son giren ilk çıkar.Alanı kısıtlıdır fakat Heap'e göre hızlı çalışır. Ayrıca stackte kullanılmayan veri hemen silinir.Stack taştığında ise program 
+StackOverFlow exception fırlatır.
+
+Heap ise alan olarak stackten büyüktür ve veriler karışık tutulur(Stackteki LIFO mantığı gibi birşey yoktur) fakat buraya veri atıp çekmek fazlaca maliyetlidir. 
+Performans açısından da stack'e göre yavaş çalışır. Kullanılmayan veri olduğunda ise Garbage Collector kendisi siler.
+
+public static void main(String[] args) {
+		int sayi = 10;
+		int sayi1 = sayi;
+		
+		sayi= 20;
+		
+		System.out.println(sayi);
+		System.out.println(sayi1);
+		// Çıktı : 20 - 10
+		
+
+		int[] sayilar = {1,2,3};
+		int[] sayilar2 = sayilar;
+		
+		sayilar[0] =3;
+		sayilar[2] =1;
+		
+		System.out.println(Arrays.toString(sayilar));
+		System.out.println(Arrays.toString(sayilar2));
+		// Çıktı :[3, 2, 1] - [3, 2, 1]
+	}
+
+Bu üstteki çıktığının sebebi şudur; Value tipler stackte ayrı ayrı yer tuttu,
+Fakat referans tip olan arrayların pointerları stackte ayrı ayrı tutsada heap içerisinde referansları aynı yeri gösteriyor.
+
+
 

@@ -3,7 +3,7 @@
 		
 
 				  Veri Tipleri(Data Types):
-			 	  /				 	\
+			 	
 		İlkel Veri Tipleri				Referans Veri Tipleri
 		(Primitive)					(Reference)
 		
@@ -20,7 +20,7 @@
 
 
 				Veri Yapıları(Data Structures)
-				/					\
+
 	  Doğrusal Veri Yapıları      		 Doğrusal Olmayan Veri Yapıları 
 	 (Linear Data Structures)			 (Non Linear Data Structures)
 	

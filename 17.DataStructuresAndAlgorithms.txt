@@ -3,10 +3,7 @@
 		
 
 				  Veri Tipleri(Data Types):
-			 	  /				 	\
-		     	 /					 \
-		    	     /					  \
-		   	    /				        \
+			 	
 		İlkel Veri Tipleri				Referans Veri Tipleri
 		(Primitive)					(Reference)
 		
@@ -23,17 +20,16 @@
 
 
 				Veri Yapıları(Data Structures)
-    				 /				 	  \
-		     	/					   \
-		    	    /					    \
-		   	   /					     	\
-	  Doğrusal Veri Yapıları      		 Doğrusal Olmayan Veri Yapıları 
-	 (Linear Data Structures)			 (Non Linear Data Structures)
 	
-	1.Dizi(Array)						 1.Ağaç(Tree)
-	2.Bağlı Liste(LinkedList)			 2.Graf(Graph)
+	  Doğrusal Veri Yapıları      			 Doğrusal Olmayan Veri Yapıları 
+	 (Linear Data Structures)			(Non Linear Data Structures)
+	
+	1.Dizi(Array)						1.Ağaç(Tree)
+	2.Bağlı Liste(LinkedList)				2.Graf(Graph)
 	3.Yığın(Stack)
 	4.Kuyruk(Queue)
+
+
 
 Doğrusal Veri Yapıları(Linear Data Structures) : Doğrusal bir veri yapısı, veri elemanlarını sıralı olarak düzenler. 
 Veri öğeleri kendisinden önceki ve sonraki öğeyle ilişkili olabilir.
@@ -361,27 +357,3 @@ NOT: En üstteki 10 olan değer 'root' nodedir. Root'un altındaki her eleman le
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

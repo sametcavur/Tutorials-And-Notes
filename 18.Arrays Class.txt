@@ -1,0 +1,142 @@
+		//Arrays Sınıfı ve Metotları//
+
+Java.util paketindeki Arrays sınıfı, Java Collection Framework'ün bir parçasıdır. Bu sınıf, Java dizilerini dinamik olarak oluşturmak ve bunlara erişmek için statik metotlar sağlar.
+Yalnızca statik metotlar ve Object sınıfının metotlarından oluşur. Bu sınıfın metotları, sınıf adının kendisi tarafından kullanılabilir.
+
+**NOT : Eğer bir array değilde liste için bu metodları kullanmak istersek önce listeyi bir arraye çevirmemiz lazım, O da şu şekilde olur;
+->listemiz.toArray();
+->System.out.println(Arrays.toString(listemiz.toArray()));
+
+
+
+	//Arrays.toString()//
+Dizinin elemanlarını Stringe çevirmek için kullanılan bir metottur.
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = {13, 2, 9, 175, -14, 37, -1};
+        System.out.println(Arrays.toString(array));
+    }
+}
+
+Çıktı : [13, 2, 9, 175, -14, 37, -1]
+
+
+
+	//Arrays.fill()//
+Bu metod ile arrayi istediğimiz değerler ile doldurabiliriz.
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = {13, 2, 9, 175, -14, 37, -1};
+
+        Arrays.fill(array , 3);
+        System.out.println(Arrays.toString(array));
+
+        int[] array2 = {13, 2, 9, 175, -14, 37, -1};
+
+        Arrays.fill(array2, 0, 4, -5);  -> 0'dan 4. indexe kadar olan değerleri -5 yap.
+        System.out.println(Arrays.toString(liste2));
+    }
+}
+
+Çıktı : 
+[3, 3, 3, 3, 3, 3, 3]
+[-5, -5, -5, -5, -5, 3, 3]
+
+
+
+	//Arrays.sort()//
+Bu metod ile dizilerdeki elemanları sıralayabiliriz.
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = {-5, 1, 23, 3, -15, -321, 129};
+        Arrays.sort(array);
+        System.out.println(Arrays.toString(array));
+    }
+}
+Çıktı : [-321, -15, -5, 1, 3, 23, 129]
+
+
+
+	//Arrays.binarySearch()//
+Bir elemanın indexini bulmak için bu metodu kullanılabiliriz. 
+NOT : Bu metodu kullanabilmek için, dizinin sıralı olması gerekmektedir.
+
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = {-321, -15, -5, 1, 3, 23, 129};
+
+        int index = Arrays.binarySearch(liste, -15);
+        System.out.println("-15 index no :" + index);
+    }
+}
+Çıktı : -15 index no : 1
+
+
+
+	//Arrays.copyOf() ve Arrays.copyOfRange()//
+Mevcut diziden belli bir uzunlukta yeni bir dizi oluşturmak için Arrays.copyOf() metotu kullanılır
+
+Mevcut diziden belli bir aralıkta yeni bir dizi oluşturmak için ise Array.copyOfRange() metodu kullanılır.
+
+public class Main {
+    public static void main(String[] args) {
+
+	   int[] mainArray = {13, 2, 9, 175, -14, 37, -1};
+
+	   int[] copyArray = Arrays.copyOf(mainArray, 5);
+
+	   System.out.println(Arrays.toString(copyArray ));
+
+        int[] copyOfRangeArray = Arrays.copyOfRange(mainArray, 1,5);
+
+        System.out.println(Arrays.toString(copyOfRangeArray));
+    }
+}
+Çıktı :
+[13, 2, 9, 175, -14]
+[2, 9, 175, -14]
+
+
+
+	//Arrays.equals()//
+İki arrayin eşitliğini kontrol etmek için Arrays.equals() metotu kullanırız.
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array1 = {5, 10, 25,-3};
+        int[] array2 = {5, 10, 25,-3};
+        int[] array3 = {5, 10, 16,-3};
+
+        System.out.println(Arrays.equals(array1 , array2));
+        System.out.println(Arrays.equals(array1 , array3)); 
+    }
+}
+Çıktı :
+true
+false
+
+
+
+	//Arrays.asList()//
+Bu metod ile istediğimiz kadar verisi olan array üretebiliriz. 
+NOT : Listenin tipini Object belirlediğimiz takdirde arraylerde yada listelerde olduğu gibi tipi karışık bir arrayde oluşturabiliriz.
+
+public class Main {
+   public static void main(String[] args) {
+		List<Integer> list = Arrays.asList(5, 10, 16,-3);
+
+		System.out.println(Arrays.toString(list.toArray()));
+
+
+		List<Object> mixArray = Arrays.asList(1,"sd",true,4);
+		
+		System.out.println(Arrays.toString(array.toArray()));
+	}
+}
+Çıktı :
+[5, 10, 16,-3]
+[1, sd, true, 4]

@@ -346,8 +346,8 @@ Ve bu elemandan büyük olanlar bu elemanın sağına, küçük olanlar ise elem
 
 		10
 	7		15
-   4   9     13   20
-  1   8          19 40
+   4   9     		13   20
+  1   8          		19 40
 
 
 NOT: En üstteki 10 olan değer 'root' nodedir. Root'un altındaki her eleman leaf(yaprak)tir.Eğer bir leaf nodenin üst nodesi varsa onlarda parent nodedir.

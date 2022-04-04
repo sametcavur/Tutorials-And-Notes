@@ -3,7 +3,10 @@
 		
 
 				  Veri Tipleri(Data Types):
-			 	
+			 	  /				 	\
+		     	 /					 \
+		    	     /					  \
+		   	    /				        \
 		İlkel Veri Tipleri				Referans Veri Tipleri
 		(Primitive)					(Reference)
 		
@@ -20,16 +23,17 @@
 
 
 				Veri Yapıları(Data Structures)
+    				 /				 	  \
+		     	/					   \
+		    	    /					    \
+		   	   /					     	\
+	  Doğrusal Veri Yapıları      		 Doğrusal Olmayan Veri Yapıları 
+	 (Linear Data Structures)			 (Non Linear Data Structures)
 	
-	  Doğrusal Veri Yapıları      			 Doğrusal Olmayan Veri Yapıları 
-	 (Linear Data Structures)			(Non Linear Data Structures)
-	
-	1.Dizi(Array)						1.Ağaç(Tree)
-	2.Bağlı Liste(LinkedList)				2.Graf(Graph)
+	1.Dizi(Array)						 1.Ağaç(Tree)
+	2.Bağlı Liste(LinkedList)			 2.Graf(Graph)
 	3.Yığın(Stack)
 	4.Kuyruk(Queue)
-
-
 
 Doğrusal Veri Yapıları(Linear Data Structures) : Doğrusal bir veri yapısı, veri elemanlarını sıralı olarak düzenler. 
 Veri öğeleri kendisinden önceki ve sonraki öğeyle ilişkili olabilir.
@@ -209,4 +213,175 @@ Bu üstteki çıktığının sebebi şudur; Value tipler stackte ayrı ayrı yer
 Fakat referans tip olan arrayların pointerları stackte ayrı ayrı tutsada heap içerisinde referansları aynı yeri gösteriyor.
 
 
+	
+		//SORTİNG ALGORİTHMS(Sıralama Algoritmaları)//
 
+Selection Sort(Seçmeli Sıralama) : Bu algoritmaya göre listenin başından bir eleman alınır ve liste taranır en küçük eleman bulunur ve yer değiştirilir.
+Daha sonra en başta en küçük sayı olduğunu bildiğimiz için sıradaki eleman bunun yanındaki eleman olur ve liste tekrardan taranır.
+Örnek:
+-> [ 10 , 8 , 44 , 4 , 27 ]
+
+1.Adım : Liste tarandı ve küçük elemanın 4 olduğu görüldü. 10 ile 4 yer değiştirdi.
+->[ 4 , 8 , 44 , 10 , 27 ]
+2.Adım : Liste tarandı ve sıradaki en küçük 8 olduğu için herhangi bir değişiklik yapılmadı.
+->[ 4 , 8 , 44 , 10 , 27 ]
+3.Adım : Liste tarandı ve sıradaki en küçük 10 olduğu için 44 ile 10 yer değiştirdi.
+->[ 4 , 8 , 10 , 44 , 27 ]
+4.Adım : Liste tarandı ve sıradaki en küçük 10 olduğu için 44 ile 10 yer değiştirdi.
+->[ 4 , 8 , 10 , 44 , 27 ]
+5.Adım : Liste tarandı ve sıradaki en küçük 27 olduğu için 44 ile 27 yer değiştirdi.
+
+-> [ 4 , 8 , 10 , 27 , 44 ] Listenin son hali bu şekildedir.
+
+
+
+Insertion Sort(Eklemeli Sıralama) : Bu algoritmaya göre listenin ikinci elemanından başlayarak geri doğru gider ve önceki eleman küçükse soluna geçer.
+Örnek:
+-> [ 10 , 8 , 44 , 4 , 27 ]
+
+1.Adım : 8 değeri 10 dan küçük olduğu için soluna atar.
+->[ 8 , 10 , 44 , 4 , 27 ]
+2.Adım : 44 değeri 10 dan küçük olmadığı için bir değişiklik yapılmadı.
+->[ 8 , 10 , 44 , 4 , 27 ]
+3.Adım : 4 değeri 44 den küçük olduğu için soluna, 10 dan küçük olduğu için soluna ve 8 den küçük olduğu için soluna atar.
+->[ 4 , 8 , 10 , 44 , 27 ]
+4.Adım : 27 değeri 44 den küçük olduğu soluna atar, fakat 10 dan küçük olmadığı için yerinde kalır
+->[ 4 , 8 , 10 , 27 , 44 ]
+
+-> [ 4 , 8 , 10 , 27 , 44 ] Listenin son hali bu şekildedir.
+
+
+
+Bubble Sort(Kabarcık Sıralama) : Bu algoritmada 1. ve 2. kıyaslanır ve küçük olan sola geçer daha sonra 2. ve 3. kıyaslanır küçük olan sola geçer daha sonra 3. ve 4. diye
+ liste bitene kadar devam eder, ve her listenin bitişinde aslında en büyük sayı sona geçmiş olur.
+Örnek:
+-> [ 10 , 8 , 44 , 4 , 27 ]
+
+1.Adım : İlk 2 değer kıyaslanır 10 değer 8 den büyük olduğu için sağına atar.
+->[ 8 , 10 , 44 , 4 , 27 ]
+2.adım : Sonraki iki değer kıyaslanır ve 44 değeri 10 değerinden büyük olduğu için sabit kalır.
+->[ 8 , 10 , 44 , 4 , 27 ]
+3.Adım : Sonraki iki değer kıyaslanır ve 44 değeri 4 ten büyük olduğu için sağına atar.
+->[ 8 , 10 , 4 , 44 , 27 ]
+4.Adım : Sonraki iki değer kıyaslanır ve 44 değeri 27 ten büyük olduğu için sağına atar.
+->[ 8 , 10 , 4 , 27 , 44 ]
+***Burada liste bir kere dönmüş oldu, ve listenin sonuna en büyük değer olan 44 yerleşti, bir sonra listenin dönüşünde 44'ün soluna 44'ten sonraki en büyük değer gelecektir.
+
+5.Adım : 8 ve 10 kıyaslanır ve liste sabit kalır.
+->[ 8 , 10 , 4 , 27 , 44 ]
+6.Adım : 10 ve 4 kıyaslanır ve 10 değeri 4 değerinin sağına atar.
+->[ 8 , 4 , 10 , 27 , 44 ]
+7.Adım : 10 ve 27 daha sonra 27 ve 44 kıyaslanır ve liste sabit kalır.
+->[ 8 , 4 , 10 , 27 , 44 ]
+8.Adım : 8 ve 4 kıyaslanır ve 8 değeri 4 ün sağına atar.
+
+-> [ 4 , 8 , 10 , 27 , 44 ] Listenin son hali bu şekildedir.
+
+
+
+Merge Sort(Birleştirerek Sıralama) : Bu algoritmaya göre listemizde tüm elemanlardan tek kalana kadar ikiye bölünür. Ve daha sonra sıralı bir şekilde birleştirilir.
+Örnek:
+-> [ 4 , 8 , 36 , 10 , 27 , 2 , 44 , 19 ]
+
+-> [4,8,36,10]  -  [27,2,44,19]
+
+-> [4,8]-[36,10]-[27,2]-[44,19]
+
+-> [4],[8],[36],[10],[27],[2],[44],[19]  Bu noktada elemanlar tamamen bağımsız oldu ve üst adımda parçalandıkları gibi küçük olanlar sola gelecek şekilde aşağıda listelenicek.
+
+-> [4,8]-[10,36]-[2,27]-[19,44]
+
+-> [4,8,10,36]  -  [2,19,27,44]
+ 
+-> [ 2 , 4 , 8 , 10 , 19 , 27 , 36 , 44 ]  Listenin son hali bu şekildedir.
+
+
+
+Quick Sort(Hızlı Sıralama) : Bu algoritma ilerleyiş bakımından merge sorta benzer, bu algoritmaya göre listemizden pivot bir eleman seçilir ve pivot elemandan küçük olanlar sola 
+büyük olanlar sağa bölünür ve her eleman tek kalana devam edilir.
+Örnek;
+-> [ 4 , 8 , 36 , 27 , 2 , 44 , 19 ]  
+
+[ 4 , 8 , 36 , 27 , 2 , 44 , 19 ] -> 27 değerini Pivot eleman seçtik ve bundan küçük olanlar sola büyükler sağa olacak şekilde böleceğiz.
+	
+[2,4,8,19] - [36,44] -> Sol tarafta pivot değer 8 , sağ tarafta pivot değer 36 seçtik.
+
+[4,2] - [19] - [44]	-> En solda pivot değer 2 seçtik.
+
+[4] [19] [44]  -> Burada artık elemanların sağındaki yada solundaki değerler üst adımlarda bellidir ve artık yan yana sırayla koyarsak listenin son hali ortaya çıkacaktır.
+
+[ 2 , 4 , 8 , 19 , 27 , 36 , 44]   Listenin son hali bu şekildedir.
+
+
+
+		//SEARCHİNG ALGORİTHMS(Arama Algoritmaları)//
+
+Linear Search(Doğrusal Arama) : Bu arama algoritmasına göre aranan değer listenin en başından başlayarak, aranır ve bulunca algoritma sonlanır. Klasik foreach döngüsü ile listeyi dönmek gibidir.
+
+
+Binary Search(İkili Arama) : Bu algoritmaya göre liste sıralı varsayılıyor ve ortadan 2'ye bölünüyor. Aranılan veri listenin sağında mı solunda mı ona karar verilip, verinin bulunmayacağı taraf  siliniyor.
+Bu şekilde aranılan veriye gidene dek liste bölünüyor.
+Örnek:
+-> [ 4 , 8 , 19 , 27 , 29 , 44 , 142 ] 
+-> Aranılan verinin 19 olduğunu varsayıyoruz.
+
+1.Adım : Liste ikiye bölündü. Değer solda mı sağda mı kontrol edildi ve sağ taraf silindi.
+[ 4 , 8 , 19 ] - [ 29 , 44 , 142 ] 
+[ 4 , 8 , 19 ]
+2.Adım : Liste tekrar ikiye bölündü değer sağda mı solda mı bakıldı ve sol taraf silindi.
+[ 4 ] - [ 19 ]
+3.Adım : Değer bulundu -> [ 19 ]
+
+
+Binary Search Tree(İkili Arama Ağacı) : Bu algoritmada bir tree-ağaç yapısı vardır. Elimizdeki veri seti bir düzene göre sıralanmıştır. Sıralama şu şekilde olur. Ağacın en üstünde bir eleman seçeriz.
+Ve bu elemandan büyük olanlar bu elemanın sağına, küçük olanlar ise elemanın soluna atılır. Bu şekilde bir sonraki eklenecek veri yada aradığımız verinin yeri kolaylıkla bulunabilir.
+Örnek:
+1. 10 değeri veri setindeki herhangi bir eleman diyelim. Sonraki aradığımız yada eklemek istediğimiz verinin 15 olduğunu varsayalım.O zaman bu 15 değeri 10 dan büyük olduğu için 10'un sağına gelecektir.
+
+		10
+			15
+
+2.Sıradaki eklemek yada aramak istediğimiz değer 7 olsun. Bu değer 10'dan küçük olduğu için 10'un soluna gelecektir.
+
+		10
+	7		15
+
+3.sırasıyla 20-13-9-4-1-40-19 değerlerini eklediğimizi varsayalım,ağacın son hali şu şekilde olacaktır.
+
+		10
+	7    |   15
+   4   9	| 13  20	
+  1	 8	|    19 40
+
+
+NOT: En üstteki 10 olan değer 'root' nodedir. Root'un altındaki her eleman leaf(yaprak)tir.Eğer bir leaf nodenin üst nodesi varsa onlarda parent nodedir.
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

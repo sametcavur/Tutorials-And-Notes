@@ -24,13 +24,18 @@ public class Main {
 		
 		Collections.sort(kisiler,sortingById);
 		
+		//Comparator bir functional interface oldugu icin altta goruldugu gibi lambda expression'lar ile yazmak mümkün
+		Collections.sort(kisiler, (kisi1, kisi2) -> kisi1.getName().compareTo(kisi2.getName()));
+		
 		for (Kisi kisi : kisiler) {
 			System.out.println(kisi);
 		}
 	}
 } 
-/*
- * filtrelemek istedigimiz entity'nin icerisinde de bu implements Comparator<Kisi> kullanabiliriz. Fakat...
+/* Comparatorlarin en sik kullanim sekli lambda expressionlar iledir(28.satirda örnek var) fakat yinede
+ * lambda kullanmadan yazmak istiyorsak :
+ * Filtrelemek istedigimiz entity'nin icerisinde de bu implements Comparator<Kisi> kullanabilir ve compare
+ * metodunu override edebiliriz fakat...
  * o entity için sadece 1 filtreleme hakkimiz olur, bu sebepten ötürü her bir filtre icin comparator classlar 
- * olusturup bunlari da comparator paketinin altinda tutmak bir best practice'dir.
+ * olusturup bunlari da comparator paketinin altinda tutmak gereklidir.
 */
